@@ -1,4 +1,5 @@
 === Recipe Warning ===
+Contributors: vj1987
 Tags: recipes, firefox, accessibility
 Requires at least: 6.4
 Tested up to: 7.1
@@ -12,6 +13,8 @@ Give mobile Firefox readers a choice to use the original recipe, with a dismissi
 == Description ==
 
 Recipe Warning adds a reader notice to recipe pages when a visitor's browser identifies itself as Firefox on Android or iOS. Readers can continue to the original recipe, copy its link for another browser, or confirm that they have disabled page summaries. The original recipe and its structured data stay intact.
+
+[Source code and issue tracker](https://github.com/And-or-Labs/recipe-warning)
 
 **Reader controls**
 
@@ -38,7 +41,7 @@ Page-summary availability depends on browser version, device, and rollout. See M
 
 **About and attribution**
 
-Developed by And/or Labs Inc. The project grew out of a discussion with Don Marti about supporting recipe creators. That acknowledgement does not imply that he developed, reviewed, or endorsed this release. [Source discussion](https://www.linkedin.com/posts/dmarti_should-recipe-sites-start-blocking-firefox-share-7511824622989008896-pGED/)
+Developed by And/or Labs Inc. Credit for the original idea goes to Don Marti, whose proposal prompted this plugin. That acknowledgement does not imply that he developed, reviewed, or endorsed this release. [Source discussion](https://www.linkedin.com/posts/dmarti_should-recipe-sites-start-blocking-firefox-share-7511824622989008896-pGED/)
 
 Recipe Warning is independent and is not affiliated with, sponsored by, or endorsed by Mozilla or the WordPress project. Firefox and Mozilla are trademarks of the Mozilla Foundation in the United States and other countries. Other product names identify their respective products and owners. No third-party logos are included.
 

@@ -4,11 +4,13 @@
 
 Archive: `artifacts/recipe-warning-1.1.0.zip`.
 
+Repository: https://github.com/And-or-Labs/recipe-warning
+
 Public author: And/or Labs Inc. License: GPL-2.0-or-later.
 
 Use the owner's existing WordPress.org account for directory submission. A new company account is not required for company attribution. The submitting account and additional committer access determine directory management; the public Author field does not create account access.
 
-The contributor username is pending. The WordPress.org submission session is signed out. No directory submission, approval, or live listing is claimed.
+WordPress.org contributor: `vj1987`. The WordPress.org submission session is signed out. No directory submission, approval, or live listing is claimed.
 
 Submission: https://wordpress.org/plugins/developers/add/
 

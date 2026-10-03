@@ -3,7 +3,9 @@
  * Plugin Name: Recipe Warning
  * Description: Shows mobile Firefox visitors a recipe summary warning with a choice to continue to the original recipe.
  * Version: 1.1.0
+ * Plugin URI: https://github.com/And-or-Labs/recipe-warning
  * Author: And/or Labs Inc.
+ * Author URI: https://github.com/And-or-Labs
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Requires at least: 6.4
  * Requires PHP: 7.4
@@ -148,7 +150,7 @@ final class Recipe_Warning {
 			<p><?php esc_html_e( 'Feature availability and browser behavior can change. Browser identification is approximate and cannot tell whether a visitor has enabled summaries.', 'recipe-warning' ); ?></p>
 			<?php else : ?>
 			<h2><?php esc_html_e( 'About', 'recipe-warning' ); ?></h2>
-			<p><?php esc_html_e( 'Inspired by a discussion with Don Marti about supporting recipe creators. This attribution is not an endorsement. Recipe Warning is independently developed and is not affiliated with or endorsed by Mozilla, Firefox, WordPress, or Don Marti. Product names identify the relevant products and remain the property of their respective owners.', 'recipe-warning' ); ?></p>
+			<p><?php esc_html_e( 'Credit for the original idea goes to Don Marti, whose proposal prompted this plugin. This attribution is not an endorsement. Recipe Warning is independently developed and is not affiliated with or endorsed by Mozilla, Firefox, WordPress, or Don Marti. Product names identify the relevant products and remain the property of their respective owners.', 'recipe-warning' ); ?></p>
 			<p><?php esc_html_e( 'The plugin adds a dismissible notice. It leaves the original recipe content unchanged, does not block summarization, and cannot detect or change browser summary settings. The “I’ve disabled summaries” button records the visitor’s statement, not a verified browser setting.', 'recipe-warning' ); ?></p>
 			<p><?php esc_html_e( 'Firefox and Mozilla are trademarks of the Mozilla Foundation in the United States and other countries.', 'recipe-warning' ); ?></p>
 			<h2><?php esc_html_e( 'Privacy and storage', 'recipe-warning' ); ?></h2>
