@@ -1,10 +1,25 @@
-# Recipe Warning
+<div align="center">
 
-A WordPress plugin by [And/or Labs Inc.](https://github.com/And-or-Labs) that gives mobile Firefox readers a dismissible notice about AI summaries on recipe pages. Readers can continue to the original recipe, copy its link, or confirm that they have disabled page summaries.
+# Recipe AI Summary Notice for Firefox
 
-**Original idea: Don Marti.** His [discussion about recipe sites and Firefox summaries](https://www.linkedin.com/posts/dmarti_should-recipe-sites-start-blocking-firefox-share-7511824622989008896-pGED/) inspired this plugin. And/or Labs built the implementation. This credit does not imply that Don developed, reviewed, or endorsed the release.
+## Keep the original recipe
 
-[Download version 1.1.0](https://github.com/And-or-Labs/recipe-warning/releases/download/v1.1.0/recipe-warning-1.1.0.zip) · [Source repository](https://github.com/And-or-Labs/recipe-warning) · [Verification record](TESTING.md)
+A dismissible WordPress notice for recipe readers using Firefox on Android or iOS.<br>
+Give readers a clear path to the publisher’s original ingredients and instructions.
+
+[![WordPress 6.4+](https://img.shields.io/badge/WordPress-6.4%2B-21759b)](https://wordpress.org/)
+[![PHP 7.4+](https://img.shields.io/badge/PHP-7.4%2B-777bb4)](plugin/recipe-ai-summary-notice/readme.txt)
+[![GPL 2.0 or later](https://img.shields.io/badge/License-GPL--2.0--or--later-476b3e)](plugin/recipe-ai-summary-notice/LICENSE.txt)
+
+**[Download the WordPress plugin](https://github.com/And-or-Labs/recipe-ai-summary-notice/releases/download/v1.2.0/recipe-ai-summary-notice-1.2.0.zip)** · [Installation](#install) · [Test results](TESTING.md)
+
+<img src="artifacts/mobile-warning.png" width="300" alt="Mobile recipe page showing the Keep the original recipe notice and reader controls">
+
+**Continue to the recipe. Copy its link. Remember confirmation that summaries are disabled for seven days.**
+
+</div>
+
+Built by [And/or Labs Inc.](https://github.com/And-or-Labs). **Original idea: Don Marti**, from his [discussion about recipe sites and Firefox summaries](https://www.linkedin.com/posts/dmarti_should-recipe-sites-start-blocking-firefox-share-7511824622989008896-pGED/). And/or Labs implemented the plugin; this credit does not imply that Don developed, reviewed, or endorsed the release.
 
 ## Why this exists
 
@@ -27,10 +42,12 @@ The notice uses a native modal dialog with keyboard controls and focus restorati
 
 Requires WordPress 6.4 or later and PHP 7.4 or later.
 
-1. Download [recipe-warning-1.1.0.zip](https://github.com/And-or-Labs/recipe-warning/releases/download/v1.1.0/recipe-warning-1.1.0.zip).
-2. In WordPress, open **Plugins > Add New Plugin > Upload Plugin**, select the ZIP, and activate Recipe Warning.
-3. Review the title and message under **Settings > Recipe Warning** and test a recipe on a staging site.
+1. Download [recipe-ai-summary-notice-1.2.0.zip](https://github.com/And-or-Labs/recipe-ai-summary-notice/releases/download/v1.2.0/recipe-ai-summary-notice-1.2.0.zip).
+2. In WordPress, open **Plugins > Add New Plugin > Upload Plugin**, select the ZIP, and activate Recipe AI Summary Notice for Firefox.
+3. Review the title and message under **Settings > Recipe AI Summary Notice for Firefox** and test a recipe on a staging site.
 4. For an unrecognized recipe format, enable **Treat this as a recipe page** in the post editor.
+
+Upgrading from Recipe Warning 1.1.0: deactivate the old plugin before activating this renamed plugin. Settings and recipe flags are retained.
 
 Use the plugin release ZIP for installation. GitHub’s source-code archives contain development files as well.
 
@@ -38,9 +55,9 @@ Use the plugin release ZIP for installation. GitHub’s source-code archives con
 
 The plugin displays a notice. It cannot block scraping or summarization, change or verify browser settings, or establish whether a visitor has Firefox’s summary feature. Browser identification and recipe detection are approximate. Password-protected pages, archives, feeds, and embeds are excluded.
 
-Metadata scanning is bounded to keep pages responsive. Recipes inserted after page readiness, unusual formats, and metadata exceeding the scan limits should use the manual editor checkbox. See the [plugin documentation](plugin/recipe-warning/readme.txt) for the limits and supported behavior.
+Metadata scanning is bounded to keep pages responsive. Recipes inserted after page readiness, unusual formats, and metadata exceeding the scan limits should use the manual editor checkbox. See the [plugin documentation](plugin/recipe-ai-summary-notice/readme.txt) for the limits and supported behavior.
 
-Recipe Warning does not assess recipes, generated summaries, allergens, nutrition, or food safety. It makes no claim that a publisher’s recipes were tested and does not guarantee copyright protection or legal compliance. Publishers control their notice wording and remain responsible for their content.
+The plugin does not assess recipes, generated summaries, allergens, nutrition, or food safety. It makes no claim that a publisher’s recipes were tested and does not guarantee copyright protection or legal compliance. Publishers control their notice wording and remain responsible for their content.
 
 ## Privacy
 
@@ -50,9 +67,11 @@ An explicit disabled-summary confirmation stores only an expiry timestamp under 
 
 WordPress settings and manual recipe flags remain in the database after uninstall. Other parts of the site, its hosting, and the browser have separate data practices. See [context and disclosures](docs/CONTEXT-AND-DISCLOSURES.md) for details.
 
-## Development and verification
+<details>
+<summary>Development and verification</summary>
 
-Plugin source is in [`plugin/recipe-warning/`](plugin/recipe-warning/). Local WordPress sites and dependencies are excluded from version control. Create a disposable WordPress Studio site in `site/`, copy the plugin directory into its `wp-content/plugins/` directory, activate it, and install WP Recipe Maker for its integration fixtures.
+
+Plugin source is in [`plugin/recipe-ai-summary-notice/`](plugin/recipe-ai-summary-notice/). Local WordPress sites and dependencies are excluded from version control. Create a disposable WordPress Studio site in `site/`, copy the plugin directory into its `wp-content/plugins/` directory, activate it, and install WP Recipe Maker for its integration fixtures.
 
 ```sh
 npm ci
@@ -73,8 +92,11 @@ python3 scripts/package.py
 
 The [verification record](TESTING.md) covers browser behavior, permissions and sanitization, storage and clipboard failures, metadata stress cases, accessibility checks, local HTTP load testing, and WordPress Plugin Check. Mobile identities and viewports are emulated; these checks do not test physical mobile devices or Firefox’s summary generation. The [WebKit environment note](docs/WEBKIT-TEST-ENVIRONMENT.md) records the test-specific WordPress emoji workaround. Local review and packaging details are in the [release notes](docs/RELEASE.md).
 
+
+</details>
+
 ## License and independence
 
-[GPL version 2 or later](plugin/recipe-warning/LICENSE.txt). Provided without warranty to the extent permitted by applicable law. The documentation supplies technical information, not legal advice or immunity from claims.
+[GPL version 2 or later](plugin/recipe-ai-summary-notice/LICENSE.txt). Provided without warranty to the extent permitted by applicable law. The documentation supplies technical information, not legal advice or immunity from claims.
 
-Recipe Warning is independent of Mozilla and the WordPress project. Firefox and Mozilla are trademarks of the Mozilla Foundation in the United States and other countries. Product names identify their respective products and owners; no affiliation or endorsement is implied.
+Recipe AI Summary Notice for Firefox is independent of Mozilla and the WordPress project. Firefox and Mozilla are trademarks of the Mozilla Foundation in the United States and other countries. Product names identify their respective products and owners; no affiliation or endorsement is implied.

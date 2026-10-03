@@ -37,3 +37,7 @@ The Impeccable command package was unavailable. Its requested review sequence wa
 ## Reproduction
 
 See README.md for site setup. Run `npm test`, the PHP checks through `studio wp eval-file`, `node tests/admin-check.cjs`, `node tests/content-check.cjs`, `node tests/load.mjs`, and `node tests/minimum-check.cjs`. `python3 scripts/package.py` creates the reproducible upload archive. Full and focused browser logs are preserved in `artifacts/`.
+
+## 1.2.0 rename verification, October 3, 2026
+
+The renamed ZIP was installed and activated after deactivating the old plugin. All 57 release assertions passed with the new translation domain. WordPress Plugin Check reported no errors. Context/About rendered at desktop and mobile widths and targeted Chromium notice/keyboard checks passed. Every archive file matched source and installed plugin bytes. The behavior code is unchanged from 1.1.0; the broader results above remain the 1.1.0 baseline.

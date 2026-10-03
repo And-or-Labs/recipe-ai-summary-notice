@@ -1,10 +1,10 @@
-=== Recipe Warning ===
+=== Recipe AI Summary Notice for Firefox ===
 Contributors: vj1987
-Tags: recipes, firefox, accessibility
+Tags: recipes, ai summaries, firefox
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,9 +12,9 @@ Give mobile Firefox readers a choice to use the original recipe, with a dismissi
 
 == Description ==
 
-Recipe Warning adds a reader notice to recipe pages when a visitor's browser identifies itself as Firefox on Android or iOS. Readers can continue to the original recipe, copy its link for another browser, or confirm that they have disabled page summaries. The original recipe and its structured data stay intact.
+Recipe AI Summary Notice for Firefox adds a reader notice to recipe pages when a visitor's browser identifies itself as Firefox on Android or iOS. Readers can continue to the original recipe, copy its link for another browser, or confirm that they have disabled page summaries. The original recipe and its structured data stay intact.
 
-[Source code and issue tracker](https://github.com/And-or-Labs/recipe-warning)
+[Source code and issue tracker](https://github.com/And-or-Labs/recipe-ai-summary-notice)
 
 **Reader controls**
 
@@ -24,7 +24,7 @@ Recipe Warning adds a reader notice to recipe pages when a visitor's browser ide
 
 **Publisher controls**
 
-* Edit the title and message under Settings > Recipe Warning.
+* Edit the title and message under Settings > Recipe AI Summary Notice for Firefox.
 * Recognize Recipe JSON-LD, Recipe microdata, WP Recipe Maker, and supported recipe blocks and shortcodes.
 * Mark other recipe formats with the editor's "Treat this as a recipe page" checkbox.
 * Review the Context and About & privacy tabs, including suggested text for WordPress's Privacy Policy Guide.
@@ -43,7 +43,7 @@ Page-summary availability depends on browser version, device, and rollout. See M
 
 Developed by And/or Labs Inc. Credit for the original idea goes to Don Marti, whose proposal prompted this plugin. That acknowledgement does not imply that he developed, reviewed, or endorsed this release. [Source discussion](https://www.linkedin.com/posts/dmarti_should-recipe-sites-start-blocking-firefox-share-7511824622989008896-pGED/)
 
-Recipe Warning is independent and is not affiliated with, sponsored by, or endorsed by Mozilla or the WordPress project. Firefox and Mozilla are trademarks of the Mozilla Foundation in the United States and other countries. Other product names identify their respective products and owners. No third-party logos are included.
+Recipe AI Summary Notice for Firefox is independent and is not affiliated with, sponsored by, or endorsed by Mozilla or the WordPress project. Firefox and Mozilla are trademarks of the Mozilla Foundation in the United States and other countries. Other product names identify their respective products and owners. No third-party logos are included.
 
 **Privacy**
 
@@ -63,9 +63,11 @@ Licensed under GPL version 2 or any later version. Provided without warranty to 
 
 == Installation ==
 
-1. Upload recipe-warning-1.1.0.zip under Plugins > Add New Plugin > Upload Plugin.
-2. Activate Recipe Warning.
-3. Review the wording under Settings > Recipe Warning and test on a staging site.
+Updating from the GitHub release named Recipe Warning: deactivate the old plugin before activating this renamed plugin. Existing settings and recipe flags are retained. Do not activate both copies together.
+
+1. Upload recipe-ai-summary-notice-1.2.0.zip under Plugins > Add New Plugin > Upload Plugin.
+2. Activate Recipe AI Summary Notice for Firefox.
+3. Review the wording under Settings > Recipe AI Summary Notice for Firefox and test on a staging site.
 4. For a recipe without recognized markup, check "Treat this as a recipe page" in its editor.
 
 == Frequently Asked Questions ==
@@ -83,7 +85,7 @@ Without JavaScript or a working modal-dialog API, the original page remains avai
 The plugin inspects up to 64 JSON-LD blocks, skips blocks over 262,144 characters, reads up to 1,048,576 characters total, and scans at most 10,000 metadata nodes per block. Use the manual checkbox for larger or dynamically injected recipes.
 
 = Does the plugin support translations? =
-Yes. Interface strings use the recipe-warning text domain. Publisher-saved copy is displayed as entered.
+Yes. Interface strings use the recipe-ai-summary-notice text domain. Publisher-saved copy is displayed as entered.
 
 = What happens when updating from 1.0.0? =
 The exact original default message is replaced with neutral wording. Custom messages and enabled settings are preserved. Title and message lengths are limited to 180 and 4,000 characters respectively.
@@ -92,6 +94,10 @@ The exact original default message is replaced with neutral wording. Custom mess
 Settings and manual recipe flags are retained. Recipes are never changed by the plugin. Saved browser preferences can be removed by clearing this site's browser storage.
 
 == Changelog ==
+
+= 1.2.0 =
+* Renamed to Recipe AI Summary Notice for Firefox with matching directory slug and translation domain.
+* Existing settings, manual recipe flags, and browser preferences retain their original storage keys.
 
 = 1.1.0 =
 * Added sourced context, About, privacy, trademark, scope, and license disclosures.

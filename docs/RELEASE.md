@@ -1,10 +1,10 @@
-# Recipe Warning 1.1.0
+# Recipe AI Summary Notice for Firefox 1.2.0
 
 ## Submission package
 
-Archive: `artifacts/recipe-warning-1.1.0.zip`.
+Archive: `artifacts/recipe-ai-summary-notice-1.2.0.zip`.
 
-Repository: https://github.com/And-or-Labs/recipe-warning
+Repository: https://github.com/And-or-Labs/recipe-ai-summary-notice
 
 Public author: And/or Labs Inc. License: GPL-2.0-or-later.
 

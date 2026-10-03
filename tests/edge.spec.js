@@ -2,7 +2,7 @@ const { test, expect } = require('./browser-fixtures');
 const fs = require('node:fs');
 const path = require('node:path');
 const fixtures = JSON.parse(fs.readFileSync(path.join(__dirname, 'fixtures.json'), 'utf8'));
-const pluginScript = fs.readFileSync(path.join(__dirname, '../plugin/recipe-warning/assets/recipe-warning.js'), 'utf8');
+const pluginScript = fs.readFileSync(path.join(__dirname, '../plugin/recipe-ai-summary-notice/assets/recipe-warning.js'), 'utf8');
 const warning = page => page.locator('#recipe-warning');
 const url = (name = 'recipe') => `/?p=${fixtures[name]}`;
 const proceed = page => page.getByRole('button', { name: 'Continue to the original recipe' });
@@ -176,7 +176,7 @@ test('archives, feeds and embedded posts do not load warning assets', async ({ r
   for (const endpoint of ['/', '/?feed=rss2', `/?p=${fixtures.recipe}&embed=true`]) {
     const response = await request.get(endpoint);
     expect(response.ok()).toBe(true);
-    expect(await response.text()).not.toMatch(/recipe-warning\/assets\/recipe-warning\.(?:js|css)/);
+    expect(await response.text()).not.toMatch(/recipe-ai-summary-notice\/assets\/recipe-warning\.(?:js|css)/);
   }
 });
 

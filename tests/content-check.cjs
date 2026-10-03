@@ -9,7 +9,7 @@ const {chromium,expect}=require('@playwright/test');
   await page.setViewportSize({width,height:900});
   for(const tab of ['context','about']){
    await page.goto('http://localhost:8881/wp-admin/options-general.php?page=recipe-warning&tab='+tab);
-   await expect(page.locator('nav[aria-label="Recipe Warning settings"] a[aria-current="page"]')).toHaveCount(1);
+   await expect(page.locator('nav[aria-label="Recipe AI Summary Notice for Firefox settings"] a[aria-current="page"]')).toHaveCount(1);
    if(tab==='context'){
     await expect(page.getByRole('heading',{name:'Why this plugin exists'})).toBeVisible();
     await expect(page.locator('.wrap')).toContainText('October 1, 2026');

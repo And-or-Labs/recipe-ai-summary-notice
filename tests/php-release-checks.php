@@ -107,7 +107,7 @@ try {
 		'copyFallback' => 'Copy the selected link, then paste it into another browser.',
 	);
 	foreach ( $expected_strings as $key => $value ) {
-		$check( isset( $config['strings'][ $key ] ) && __( $value, 'recipe-warning' ) === $config['strings'][ $key ], 'Frontend dictionary must include translated label: ' . $key );
+		$check( isset( $config['strings'][ $key ] ) && __( $value, 'recipe-ai-summary-notice' ) === $config['strings'][ $key ], 'Frontend dictionary must include translated label: ' . $key );
 	}
 	echo 'PASS: ' . $checks . " WordPress release checks.\n";
 } finally {
