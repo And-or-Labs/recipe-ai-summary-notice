@@ -1,0 +1,38 @@
+
+Running 27 tests using 1 worker
+
+(node:89742) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/edge.spec.js:105:3 › small 280x360 viewport at 200% text remains usable (2.2s)
+  ✓   2 [chromium] › tests/edge.spec.js:105:3 › small 640x280 viewport at 200% text remains usable (2.2s)
+  ✓   3 [chromium] › tests/edge.spec.js:120:1 › reduced motion preference disables control transition (2.0s)
+  ✓   4 [chromium] › tests/edge.spec.js:128:1 › clipboard fallback participates in forward and reverse keyboard focus order (770ms)
+  ✓   5 [chromium] › tests/edge.spec.js:190:3 › low contrast theme colors leave readable warning text and primary controls (601ms)
+  ✓   6 [chromium] › tests/warning.spec.js:31:5 › Android Firefox › recipe warning appears (652ms)
+  ✓   7 [chromium] › tests/warning.spec.js:137:1 › native modal traps keyboard focus and supports keyboard dismissal (836ms)
+  ✓   8 [chromium] › tests/warning.spec.js:158:1 › 320px layout has no horizontal overflow and usable controls (1.0s)
+  ✓   9 [chromium] › tests/warning.spec.js:175:1 › warning has no serious or critical automated accessibility violations (1.6s)
+(node:89847) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  10 [firefox] › tests/edge.spec.js:105:3 › small 280x360 viewport at 200% text remains usable (3.8s)
+  ✓  11 [firefox] › tests/edge.spec.js:105:3 › small 640x280 viewport at 200% text remains usable (1.6s)
+  ✓  12 [firefox] › tests/edge.spec.js:120:1 › reduced motion preference disables control transition (999ms)
+  ✓  13 [firefox] › tests/edge.spec.js:128:1 › clipboard fallback participates in forward and reverse keyboard focus order (730ms)
+  ✓  14 [firefox] › tests/edge.spec.js:190:3 › low contrast theme colors leave readable warning text and primary controls (666ms)
+  ✓  15 [firefox] › tests/warning.spec.js:31:5 › Android Firefox › recipe warning appears (732ms)
+  ✓  16 [firefox] › tests/warning.spec.js:137:1 › native modal traps keyboard focus and supports keyboard dismissal (2.9s)
+  ✓  17 [firefox] › tests/warning.spec.js:158:1 › 320px layout has no horizontal overflow and usable controls (1.4s)
+  ✓  18 [firefox] › tests/warning.spec.js:175:1 › warning has no serious or critical automated accessibility violations (1.1s)
+(node:89938) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  19 [webkit] › tests/edge.spec.js:105:3 › small 280x360 viewport at 200% text remains usable (4.1s)
+  ✓  20 [webkit] › tests/edge.spec.js:105:3 › small 640x280 viewport at 200% text remains usable (1.4s)
+  ✓  21 [webkit] › tests/edge.spec.js:120:1 › reduced motion preference disables control transition (1.1s)
+  ✓  22 [webkit] › tests/edge.spec.js:128:1 › clipboard fallback participates in forward and reverse keyboard focus order (763ms)
+  ✓  23 [webkit] › tests/edge.spec.js:190:3 › low contrast theme colors leave readable warning text and primary controls (637ms)
+  ✓  24 [webkit] › tests/warning.spec.js:31:5 › Android Firefox › recipe warning appears (613ms)
+  ✓  25 [webkit] › tests/warning.spec.js:137:1 › native modal traps keyboard focus and supports keyboard dismissal (761ms)
+  ✓  26 [webkit] › tests/warning.spec.js:158:1 › 320px layout has no horizontal overflow and usable controls (787ms)
+  ✓  27 [webkit] › tests/warning.spec.js:175:1 › warning has no serious or critical automated accessibility violations (1.2s)
+
+  27 passed (45.1s)

@@ -1,10 +1,10 @@
 === Recipe AI Summary Notice for Firefox ===
-Contributors: vj1987
+Contributors: eclecticv, vj1987
 Tags: recipes, ai summaries, firefox
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.2.0
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -65,7 +65,7 @@ Licensed under GPL version 2 or any later version. Provided without warranty to 
 
 Updating from the GitHub release named Recipe Warning: deactivate the old plugin before activating this renamed plugin. Existing settings and recipe flags are retained. Do not activate both copies together.
 
-1. Upload recipe-ai-summary-notice-1.2.0.zip under Plugins > Add New Plugin > Upload Plugin.
+1. Upload recipe-ai-summary-notice-1.3.0.zip under Plugins > Add New Plugin > Upload Plugin.
 2. Activate Recipe AI Summary Notice for Firefox.
 3. Review the wording under Settings > Recipe AI Summary Notice for Firefox and test on a staging site.
 4. For a recipe without recognized markup, check "Treat this as a recipe page" in its editor.
@@ -94,6 +94,10 @@ The exact original default message is replaced with neutral wording. Custom mess
 Settings and manual recipe flags are retained. Recipes are never changed by the plugin. Saved browser preferences can be removed by clearing this site's browser storage.
 
 == Changelog ==
+
+= 1.3.0 =
+* Added WordPress component-based settings with a live notice preview and native form fallback.
+* Refined reader notice typography, spacing, surfaces, and focus styling.
 
 = 1.2.0 =
 * Renamed to Recipe AI Summary Notice for Firefox with matching directory slug and translation domain.

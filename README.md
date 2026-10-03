@@ -11,15 +11,30 @@ Give readers a clear path to the publisher’s original ingredients and instruct
 [![PHP 7.4+](https://img.shields.io/badge/PHP-7.4%2B-777bb4)](plugin/recipe-ai-summary-notice/readme.txt)
 [![GPL 2.0 or later](https://img.shields.io/badge/License-GPL--2.0--or--later-476b3e)](plugin/recipe-ai-summary-notice/LICENSE.txt)
 
-**[Download the WordPress plugin](https://github.com/And-or-Labs/recipe-ai-summary-notice/releases/download/v1.2.0/recipe-ai-summary-notice-1.2.0.zip)** · [Installation](#install) · [Test results](TESTING.md)
+**[Download the WordPress plugin](https://github.com/And-or-Labs/recipe-ai-summary-notice/releases/download/v1.3.0/recipe-ai-summary-notice-1.3.0.zip)** · [Installation](#install) · [Test results](TESTING.md)
 
-<img src="artifacts/mobile-warning.png" width="300" alt="Mobile recipe page showing the Keep the original recipe notice and reader controls">
-
-**Continue to the recipe. Copy its link. Remember confirmation that summaries are disabled for seven days.**
+**The original recipe stays intact. The reader stays in control.**
 
 </div>
 
 Built by [And/or Labs Inc.](https://github.com/And-or-Labs). **Original idea: Don Marti**, from his [discussion about recipe sites and Firefox summaries](https://www.linkedin.com/posts/dmarti_should-recipe-sites-start-blocking-firefox-share-7511824622989008896-pGED/). And/or Labs implemented the plugin; this credit does not imply that Don developed, reviewed, or endorsed the release.
+
+## For readers. For publishers.
+
+<table>
+<tr>
+<th>Reader notice</th>
+<th>Publisher settings</th>
+</tr>
+<tr>
+<td align="center"><a href="artifacts/mobile-warning.png"><img src="artifacts/mobile-warning.png" width="220" alt="Mobile recipe page with a dismissible notice about Firefox AI summaries"></a></td>
+<td align="center"><a href="artifacts/settings.png"><img src="artifacts/settings.png" width="460" alt="WordPress plugin settings for the recipe notice"></a></td>
+</tr>
+<tr>
+<td>Continue to the original recipe or copy its link. Confirming that summaries are disabled remembers that choice for seven days.</td>
+<td>Edit the notice title and message. Use automatic recipe detection or mark a recipe manually. Review the sourced context and privacy details.</td>
+</tr>
+</table>
 
 ## Why this exists
 
@@ -42,7 +57,7 @@ The notice uses a native modal dialog with keyboard controls and focus restorati
 
 Requires WordPress 6.4 or later and PHP 7.4 or later.
 
-1. Download [recipe-ai-summary-notice-1.2.0.zip](https://github.com/And-or-Labs/recipe-ai-summary-notice/releases/download/v1.2.0/recipe-ai-summary-notice-1.2.0.zip).
+1. Download [recipe-ai-summary-notice-1.3.0.zip](https://github.com/And-or-Labs/recipe-ai-summary-notice/releases/download/v1.3.0/recipe-ai-summary-notice-1.3.0.zip).
 2. In WordPress, open **Plugins > Add New Plugin > Upload Plugin**, select the ZIP, and activate Recipe AI Summary Notice for Firefox.
 3. Review the title and message under **Settings > Recipe AI Summary Notice for Firefox** and test a recipe on a staging site.
 4. For an unrecognized recipe format, enable **Treat this as a recipe page** in the post editor.

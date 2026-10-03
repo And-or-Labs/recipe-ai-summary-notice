@@ -6,29 +6,32 @@
     color: var(--rw-ink);
     background: var(--rw-paper);
     font-family: inherit;
-    width: min(35rem, calc(100% - 2rem));
+    width: min(32rem, calc(100% - 2rem));
     max-height: calc(100dvh - 2rem);
     margin: auto;
     padding: 0;
-    border: 1px solid currentColor;
-    border-radius: 4px;
-    box-shadow: 0 24px 80px #0003;
+    border: 0;
+    border-radius: 12px;
+    box-shadow: 0 0 0 1px #00000014, 0 8px 24px #0000001a, 0 32px 80px #00000033;
     overscroll-behavior: contain;
     -webkit-font-smoothing: antialiased;
 }
-.rw-dialog::backdrop { background: #101810bb; }
-.rw-dialog .rw-inner { padding: clamp(1.25rem, 5vw, 2.5rem); }
-.rw-dialog .rw-label { margin: 0 0 1rem; font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-.rw-dialog h2 { font-family: var(--wp--preset--font-family--heading, inherit); font-size: clamp(1.8rem, 5vw, 2.5rem); line-height: 1.12; font-weight: 600; margin: 0 0 1.25rem; color: inherit; text-wrap: balance; }
-.rw-dialog #rw-message { font-size: 1rem; line-height: 1.6; white-space: pre-line; margin: 0 0 1.5rem; text-wrap: pretty; }
-.rw-dialog .rw-actions { display: grid; gap: .625rem; }
-.rw-dialog button { box-sizing: border-box; appearance: none; display: block; width: 100%; min-height: 48px; padding: .8rem 1rem; font: inherit; font-size: .9375rem; font-weight: 600; line-height: 1.4; cursor: pointer; border-radius: 3px; border: 1px solid currentColor; text-align: center; }
+.rw-dialog::backdrop { background: #10181099; }
+.rw-dialog .rw-inner { padding: clamp(1.5rem, 5vw, 2rem); }
+.rw-dialog .rw-label { margin: 0 0 1rem; font-size: .75rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+.rw-dialog h2 { font-family: var(--wp--preset--font-family--heading, inherit); font-size: clamp(1.5rem, 5vw, 2rem); line-height: 1.2; font-weight: 600; letter-spacing: -.025em; margin: 0 0 1rem; color: inherit; text-wrap: balance; }
+.rw-dialog #rw-message { font-size: .9375rem; line-height: 1.6; white-space: pre-line; margin: 0 0 1.5rem; text-wrap: pretty; }
+.rw-dialog .rw-actions { display: grid; gap: .75rem; }
+.rw-dialog button { box-sizing: border-box; appearance: none; display: block; width: 100%; min-height: 48px; padding: .75rem 1rem; font: inherit; font-size: .875rem; font-weight: 600; line-height: 1.4; cursor: pointer; border-radius: 6px; border: 1px solid currentColor; text-align: center; text-wrap: balance; }
 .rw-dialog .rw-primary { background: var(--rw-ink); color: var(--rw-paper); border-color: var(--rw-ink); }
 .rw-dialog .rw-secondary { background: transparent; color: inherit; }
-.rw-dialog .rw-link { color: inherit; background: transparent; border-color: transparent; text-decoration: underline; text-underline-offset: 3px; }
-.rw-dialog button:focus-visible, .rw-dialog input:focus-visible { outline: 3px solid var(--rw-ink); outline-offset: 3px; }
-.rw-dialog .rw-note, .rw-dialog .rw-status { font-size: .8125rem; line-height: 1.5; margin: 1rem 0 0; }
+.rw-dialog .rw-link { color: inherit; background: transparent; border-color: transparent; text-decoration: underline; text-underline-offset: 4px; }
+.rw-dialog button:hover { box-shadow: inset 0 0 0 1px currentColor; }
+.rw-dialog .rw-link:hover { box-shadow: none; text-decoration-thickness: 2px; }
+.rw-dialog button:focus-visible, .rw-dialog input:focus-visible { outline: 2px solid var(--rw-ink); outline-offset: 3px; }
+.rw-dialog .rw-note { border-top: 1px solid #80808040; padding-top: 1rem; }
+.rw-dialog .rw-note, .rw-dialog .rw-status { font-size: .75rem; line-height: 1.6; margin: 1rem 0 0; }
 .rw-dialog .rw-status:empty { display: none; }
-.rw-dialog .rw-url { width: 100%; box-sizing: border-box; margin-top: .75rem; padding: .75rem; min-height: 44px; color: inherit; background: transparent; border: 1px solid currentColor; font: inherit; font-size: .875rem; }
-@media (prefers-reduced-motion: no-preference) { .rw-dialog button { transition: transform 100ms ease; } .rw-dialog button:active { transform: scale(.96); } }
+.rw-dialog .rw-url { width: 100%; box-sizing: border-box; margin-top: .75rem; padding: .75rem; min-height: 48px; color: inherit; background: transparent; border: 1px solid currentColor; border-radius: 6px; font: inherit; font-size: .875rem; }
+@media (prefers-reduced-motion: no-preference) { .rw-dialog button { transition: transform 100ms ease, box-shadow 100ms ease; } .rw-dialog button:active { transform: scale(.96); } }
 @media (forced-colors: active) { .rw-dialog { border: 2px solid CanvasText; } .rw-dialog button { border: 1px solid ButtonText; } }
