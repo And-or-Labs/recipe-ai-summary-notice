@@ -1,0 +1,19 @@
+{
+  "name": "recipe-warning",
+  "version": "1.0.0",
+  "description": "Mobile Firefox recipe warning plugin for WordPress",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "GPL-2.0-or-later",
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0"
+  },
+  "private": true
+}
