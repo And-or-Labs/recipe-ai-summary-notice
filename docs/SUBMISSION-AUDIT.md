@@ -1,6 +1,6 @@
 # WordPress.org submission audit
 
-Reviewed October 3, 2026. Product: **Recipe AI Summary Notice for Firefox**, developed by And/or Labs Inc. Intended contributor: `vj1987`. Intended directory slug: `recipe-ai-summary-notice`.
+Reviewed October 3, 2026. Product: **Recipe AI Summary Notice for Firefox**, developed by And/or Labs Inc. Authorized submission owner: `eclecticv`. Contributors: `eclecticv`, `vj1987`. Assigned directory slug: `recipe-ai-summary-notice`.
 
 The source review found no code-level violation of the requirements below. This is an engineering assessment, not a WordPress.org approval or a guarantee of legal compliance. Directory acceptance remains a manual review decision.
 
@@ -47,7 +47,7 @@ Numbers correspond to the detailed guidelines linked above. Evidence describes t
 - Recipe scanning has explicit script, size, and node limits. Malformed metadata, unavailable storage, and unavailable dialog APIs leave the original content available.
 - No custom SQL, remote request handler, upload endpoint, REST route, arbitrary code editor, or shell execution exists in the plugin.
 
-See [TESTING.md](../TESTING.md) for executed checks and boundaries. The final 1.2.0 ZIP contains five runtime/license/readme files and no development dependencies or credentials. Every archived file matched source and the installed renamed plugin byte-for-byte. WordPress Plugin Check reported no errors (`artifacts/plugin-check-1.2.0.txt`); all 57 PHP release assertions and the focused browser/content checks passed.
+See [TESTING.md](../TESTING.md) for executed checks and boundaries. The final 1.3.0 ZIP contains seven runtime/license/readme files and no development dependencies or credentials. Every archived file matched source and the installed renamed plugin byte-for-byte. WordPress Plugin Check reported no errors (`artifacts/plugin-check-1.3.0.txt`); all 57 PHP release assertions and the focused browser/content checks passed.
 
 ## Account and publication gates
 
@@ -57,3 +57,7 @@ See [TESTING.md](../TESTING.md) for executed checks and boundaries. The final 1.
 4. **After approval.** Publish source to the assigned SVN release structure and maintain matching stable tags. Keep contact details reachable for review and security reports. Avoid duplicate submissions for the same plugin.
 
 The submission FAQ also calls for a production-ready ZIP below 10 MB without development files. Account and directory facts above cannot be inferred from the local code review.
+
+## Submission completed, October 3, 2026
+
+The user explicitly confirmed `eclecticv` as And/or’s authorized submission account. Version 1.3.0 was uploaded, and WordPress.org returned a submission receipt and **Awaiting Review** status. The automatic scan returned Pass with a text-domain mismatch warning against its initial `recipe-ai-summary-notice-for-firefox` slug. The offered slug-change action succeeded: the submission now displays `recipe-ai-summary-notice`, matching the package directory and text domain. No code workaround or duplicate submission was made. WordPress.org reports that it sent the confirmation email. The account and requested-slug gates above are resolved for this submission; manual review and any reviewer requests remain external.

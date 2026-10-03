@@ -53,6 +53,8 @@ Summary availability varies by browser version, device, and rollout. The plugin 
 
 The notice uses a native modal dialog with keyboard controls and focus restoration. It inherits theme typography and colors, checks text contrast, and supports narrow viewports and reduced motion. Missing JavaScript or modal support leaves the original page available.
 
+WordPress.org submission: **awaiting review**. The tested release ZIP is available now from GitHub.
+
 ## Install
 
 Requires WordPress 6.4 or later and PHP 7.4 or later.
