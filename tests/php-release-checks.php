@@ -31,6 +31,22 @@ $read_fixture = static function ( $value ) {
 
 try {
 	$defaults = Recipe_Warning::defaults();
+	$check( true === $defaults['dismissible'], 'Dismissible must be the default.' );
+	$check( $defaults['message'] === Recipe_Warning::visitor_message( $defaults ), 'Dismissible stock copy must remain unchanged.' );
+	$required = $defaults;
+	$required['dismissible'] = false;
+	$check( false === strpos( Recipe_Warning::visitor_message( $required ), 'You can continue' ), 'Required stock copy must not promise Continue.' );
+	$required['message'] = 'Publisher custom text.';
+	$check( 'Publisher custom text.' === Recipe_Warning::visitor_message( $required ), 'Required mode must preserve custom copy.' );
+	$required['message'] = str_replace( "\n", "\r\n", $defaults['message'] ) . "\n";
+	$check( false === strpos( Recipe_Warning::visitor_message( $required ), 'You can continue' ), 'Required stock detection must normalize form line endings.' );
+	$check( true === $read_fixture( array( 'enabled' => true ) )['dismissible'], 'Existing stored options must remain dismissible.' );
+	foreach ( array( false, 0, '0' ) as $value ) {
+		$check( false === $read_fixture( array( 'dismissible' => $value ) )['dismissible'], 'Explicit non-dismissible setting must persist.' );
+	}
+	foreach ( array( true, 1, '1' ) as $value ) {
+		$check( true === $read_fixture( array( 'dismissible' => $value ) )['dismissible'], 'Explicit dismissible setting must persist.' );
+	}
 	foreach ( array( 'corrupt', 42, false, new stdClass() ) as $value ) {
 		$check( $defaults === $read_fixture( $value ), 'Malformed stored options must merge safe defaults.' );
 	}
@@ -45,7 +61,7 @@ try {
 	}
 	$options = $read_fixture( array( 'enabled' => false, 'title' => array( 'bad' ), 'message' => new stdClass(), 'extra' => 'ignored' ) );
 	$check( $defaults['title'] === $options['title'] && $defaults['message'] === $options['message'], 'Malformed stored text must use default copy.' );
-	$check( array( 'enabled', 'title', 'message' ) === array_keys( $options ), 'Read schema must discard unexpected option keys.' );
+	$check( empty( array_diff( array_keys( $options ), array( 'enabled', 'dismissible', 'title', 'message' ) ) ) && 4 === count( $options ), 'Read schema must discard unexpected option keys.' );
 	$original_stock = "Firefox can generate an AI summary of this recipe. That summary is not tested by this site.\n\nWe have tested our recipe, but whatever slop version Firefox generates, we have no way to test it. We don't want people making a terrible slop recipe with our name on it, and getting blamed for how it comes out.";
 	$options = $read_fixture( array( 'enabled' => false, 'title' => 'Custom heading', 'message' => $original_stock ) );
 	$check( $defaults['message'] === $options['message'], 'Exact original stock message must migrate to neutral copy.' );

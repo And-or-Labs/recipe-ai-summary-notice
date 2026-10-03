@@ -3,7 +3,7 @@ from pathlib import Path
 from zipfile import ZipFile, ZipInfo, ZIP_DEFLATED
 root = Path(__file__).resolve().parents[1]
 source = root / 'plugin' / 'recipe-ai-summary-notice'
-target = root / 'artifacts' / 'recipe-ai-summary-notice-1.3.0.zip'
+target = root / 'artifacts' / 'recipe-ai-summary-notice-1.4.0.zip'
 target.parent.mkdir(exist_ok=True)
 with ZipFile(target, 'w', compression=ZIP_DEFLATED) as archive:
     for path in sorted(source.rglob('*')):

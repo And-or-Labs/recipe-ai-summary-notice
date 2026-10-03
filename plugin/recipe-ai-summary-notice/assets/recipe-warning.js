@@ -4,6 +4,7 @@
     if (!config || !config.enabled || window.__recipeWarningLoaded) return;
     const ttl = Math.min(604800000, Math.max(1, Number(config.ttl) || 604800000));
     const strings = config.strings || {};
+    const dismissible = config.dismissible !== false;
     const ua = navigator.userAgent;
     const mobileFirefox = /FxiOS\//i.test(ua) || (/Firefox\//i.test(ua) && /Android/i.test(ua));
     if (!mobileFirefox) return;
@@ -59,6 +60,21 @@
         dialog.setAttribute('aria-describedby', 'rw-message');
         const inner = document.createElement('div');
         inner.className = 'rw-inner';
+        const header = document.createElement('div');
+        header.className = 'rw-header';
+        // Original decorative document icon. All reader-facing text is assigned with textContent.
+        function icon(path, className) {
+            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            svg.setAttribute('viewBox', '0 0 24 24');
+            svg.setAttribute('aria-hidden', 'true');
+            svg.setAttribute('focusable', 'false');
+            svg.setAttribute('class', className);
+            const line = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            line.setAttribute('d', path);
+            svg.append(line);
+            return svg;
+        }
+        header.append(icon('M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8l-5-5Zm0 0v5h5M9 12h6M9 16h6', 'rw-document-icon'));
         const label = document.createElement('p');
         label.className = 'rw-label';
         label.textContent = strings.label || 'A note for Firefox readers';
@@ -68,23 +84,46 @@
         const message = document.createElement('p');
         message.id = 'rw-message';
         message.textContent = config.message;
+        header.append(label);
         const actions = document.createElement('div');
         actions.className = 'rw-actions';
         const copy = document.createElement('button');
         copy.type = 'button';
-        copy.className = 'rw-primary';
+        copy.className = 'rw-secondary rw-copy';
         copy.textContent = strings.copy || 'Copy link for another browser';
         const bypass = document.createElement('button');
         bypass.type = 'button';
-        bypass.className = 'rw-secondary';
+        bypass.className = 'rw-confirm';
         bypass.textContent = strings.bypass || 'I’ve disabled summaries';
         const proceed = document.createElement('button');
         proceed.type = 'button';
-        proceed.className = 'rw-link';
+        proceed.className = 'rw-primary rw-continue';
         proceed.textContent = strings.proceed || 'Continue to the original recipe';
         const note = document.createElement('p');
         note.className = 'rw-note';
         note.textContent = strings.note || 'Your choice is remembered on this device for 7 days when you confirm summaries are disabled.';
+        const preference = document.createElement('div');
+        preference.className = 'rw-preference';
+        const preferenceLabel = document.createElement('p');
+        preferenceLabel.className = 'rw-preference-label';
+        preferenceLabel.textContent = strings.preferenceLabel || 'Already changed your Firefox settings?';
+        const confirmationIcon = icon('m5 12 4 4L19 6', 'rw-check-icon');
+        bypass.prepend(confirmationIcon);
+        preference.append(preferenceLabel, bypass, note);
+        const footer = document.createElement('div');
+        footer.className = 'rw-footer';
+        if (dismissible) footer.append(proceed);
+        else {
+            const requiredNote = document.createElement('p');
+            requiredNote.className = 'rw-required-note';
+            requiredNote.textContent = strings.requiredNote || 'To dismiss this notice, confirm that you have disabled summaries. This records your statement, not a verified browser setting.';
+            footer.append(requiredNote);
+        }
+        const close = document.createElement('button');
+        close.type = 'button';
+        close.className = 'rw-close';
+        close.setAttribute('aria-label', strings.close || 'Close notice');
+        close.append(icon('m6 6 12 12M18 6 6 18', 'rw-close-icon'));
         const status = document.createElement('p');
         status.className = 'rw-status';
         status.setAttribute('role', 'status');
@@ -122,7 +161,8 @@
             dismiss();
         });
         proceed.addEventListener('click', dismiss);
-        dialog.addEventListener('cancel', event => { event.preventDefault(); dismiss(); });
+        close.addEventListener('click', dismiss);
+        dialog.addEventListener('cancel', event => { event.preventDefault(); if (dismissible) dismiss(); });
         dialog.addEventListener('keydown', event => {
             if (event.key !== 'Tab') return;
             const controls = Array.from(dialog.querySelectorAll('button, input')).filter(element => !element.hidden && !element.disabled);
@@ -132,8 +172,9 @@
             event.preventDefault();
             controls[next].focus();
         });
-        actions.append(copy, bypass, proceed);
-        inner.append(label, title, message, actions, note, status, fallback);
+        actions.append(copy, status, fallback, preference);
+        inner.append(header, title, message, actions, footer);
+        if (dismissible) inner.append(close);
         dialog.append(inner);
         document.body.append(dialog);
         if (typeof dialog.showModal !== 'function') { dialog.remove(); return; }

@@ -133,9 +133,13 @@ test('clipboard fallback participates in forward and reverse keyboard focus orde
   const field = page.getByRole('textbox', { name: 'Recipe link to copy' });
   await expect(field).toBeFocused();
   await page.keyboard.press('Tab');
-  await expect(copy).toBeFocused();
+  await expect(page.getByRole('button', { name: 'I’ve disabled summaries' })).toBeFocused();
   await page.keyboard.press('Shift+Tab');
   await expect(field).toBeFocused();
+  await page.keyboard.press('Shift+Tab');
+  await expect(copy).toBeFocused();
+  await page.keyboard.press('Shift+Tab');
+  await expect(page.getByRole('button', { name: 'Close notice' })).toBeFocused();
   await page.keyboard.press('Shift+Tab');
   await expect(proceed(page)).toBeFocused();
   await page.keyboard.press('Enter');

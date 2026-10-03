@@ -61,3 +61,7 @@ The submission FAQ also calls for a production-ready ZIP below 10 MB without dev
 ## Submission completed, October 3, 2026
 
 The user explicitly confirmed `eclecticv` as And/or’s authorized submission account. Version 1.3.0 was uploaded, and WordPress.org returned a submission receipt and **Awaiting Review** status. The automatic scan returned Pass with a text-domain mismatch warning against its initial `recipe-ai-summary-notice-for-firefox` slug. The offered slug-change action succeeded: the submission now displays `recipe-ai-summary-notice`, matching the package directory and text domain. No code workaround or duplicate submission was made. WordPress.org reports that it sent the confirmation email. The account and requested-slug gates above are resolved for this submission; manual review and any reviewer requests remain external.
+
+## 1.4.0 behavior review
+
+The optional non-dismissible mode removes general dismissal controls but keeps copy and explicit disabled-summary confirmation. The publisher selects it; the default remains dismissible. Documentation states that this records a reader’s statement, cannot verify browser settings or prevent summaries, and fails open without JavaScript/dialog support. No additional tracking, remote assets, or public credits were introduced. Plugin Check reports no errors for 1.4.0. The original 1.3.0 submission receipt above remains historical until the updated archive is uploaded.

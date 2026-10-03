@@ -52,3 +52,6 @@
 }
 
 .rw-admin .rw-message-label { display: block; margin: 24px 0 8px; }
+
+.rw-dismissal-control { border-top: 1px solid #dcdcde; padding-top: 20px; margin-top: 20px; }
+.rw-preview-action + .rw-preview-action { margin-top: 16px; }

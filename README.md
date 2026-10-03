@@ -4,16 +4,16 @@
 
 ## Keep the original recipe
 
-A dismissible WordPress notice for recipe readers using Firefox on Android or iOS.<br>
+A WordPress notice, dismissible by default, for recipe readers using Firefox on Android or iOS.<br>
 Give readers a clear path to the publisher’s original ingredients and instructions.
 
 [![WordPress 6.4+](https://img.shields.io/badge/WordPress-6.4%2B-21759b)](https://wordpress.org/)
 [![PHP 7.4+](https://img.shields.io/badge/PHP-7.4%2B-777bb4)](plugin/recipe-ai-summary-notice/readme.txt)
 [![GPL 2.0 or later](https://img.shields.io/badge/License-GPL--2.0--or--later-476b3e)](plugin/recipe-ai-summary-notice/LICENSE.txt)
 
-**[Download the WordPress plugin](https://github.com/And-or-Labs/recipe-ai-summary-notice/releases/download/v1.3.0/recipe-ai-summary-notice-1.3.0.zip)** · [Installation](#install) · [Test results](TESTING.md)
+**[Download the WordPress plugin](https://github.com/And-or-Labs/recipe-ai-summary-notice/releases/download/v1.4.0/recipe-ai-summary-notice-1.4.0.zip)** · [Installation](#install) · [Test results](TESTING.md)
 
-**The original recipe stays intact. The reader stays in control.**
+**The original recipe stays intact. Choose how readers dismiss the notice.**
 
 </div>
 
@@ -23,7 +23,7 @@ Built by [And/or Labs Inc.](https://github.com/And-or-Labs). **Original idea: Do
 
 <table>
 <tr>
-<th>Reader notice</th>
+<th>Default reader notice</th>
 <th>Publisher settings</th>
 </tr>
 <tr>
@@ -31,8 +31,8 @@ Built by [And/or Labs Inc.](https://github.com/And-or-Labs). **Original idea: Do
 <td align="center"><a href="artifacts/settings.png"><img src="artifacts/settings.png" width="460" alt="WordPress plugin settings for the recipe notice"></a></td>
 </tr>
 <tr>
-<td>Continue to the original recipe or copy its link. Confirming that summaries are disabled remembers that choice for seven days.</td>
-<td>Edit the notice title and message. Use automatic recipe detection or mark a recipe manually. Review the sourced context and privacy details.</td>
+<td>Dismiss the default notice or copy the recipe link. Confirming that summaries are disabled suppresses the notice for seven days.</td>
+<td>Edit the title and message, choose the dismissal mode, and mark recipes manually when needed. Review sourced context and privacy details.</td>
 </tr>
 </table>
 
@@ -45,7 +45,8 @@ Summary availability varies by browser version, device, and rollout. The plugin 
 ## What it does
 
 - Shows a notice when a browser identifies itself as Firefox on Android or iOS and the page is recognized as a recipe.
-- Lets readers continue immediately or dismiss with Escape. Confirming that summaries are disabled suppresses the notice for seven days on that site in that browser.
+- Defaults to a dismissible notice with Continue, close, and Escape controls. Publishers can instead choose non-dismissible mode.
+- In both modes, confirming that summaries are disabled closes the notice and suppresses it for seven days on that site in that browser. This records the reader’s statement; it does not verify settings.
 - Offers a copy-link button with a selectable URL fallback when clipboard access fails.
 - Recognizes Recipe JSON-LD and microdata, WP Recipe Maker, and supported recipe blocks and shortcodes. An editor checkbox covers other formats.
 - Provides editable plain-text notice copy and native WordPress Context and About & privacy settings tabs.
@@ -55,13 +56,27 @@ The notice uses a native modal dialog with keyboard controls and focus restorati
 
 WordPress.org submission: **awaiting review**. The tested release ZIP is available now from GitHub.
 
+## Dismissal modes
+
+| Control | Dismissible, the default | Non-dismissible |
+| --- | --- | --- |
+| Continue, close, Escape | Dismiss the current notice | Continue and close are hidden; Escape is blocked |
+| Click outside the notice | No effect | No effect |
+| Copy recipe link | Available | Available; copying does not close the notice |
+| “I've disabled summaries” | Closes the notice and remembers confirmation for seven days | Closes the notice and remembers confirmation for seven days |
+| JavaScript or dialog unavailable | Original page remains available | Original page remains available |
+
+Non-dismissible mode keeps the modal over the recipe until the reader confirms that summaries are disabled. It cannot verify that statement or prevent summarization. Review your wording before enabling this mode. Stock wording adapts to the selected mode; custom publisher copy is preserved.
+
+[View the non-dismissible notice](artifacts/mobile-required.png).
+
 ## Install
 
 Requires WordPress 6.4 or later and PHP 7.4 or later.
 
-1. Download [recipe-ai-summary-notice-1.3.0.zip](https://github.com/And-or-Labs/recipe-ai-summary-notice/releases/download/v1.3.0/recipe-ai-summary-notice-1.3.0.zip).
+1. Download [recipe-ai-summary-notice-1.4.0.zip](https://github.com/And-or-Labs/recipe-ai-summary-notice/releases/download/v1.4.0/recipe-ai-summary-notice-1.4.0.zip).
 2. In WordPress, open **Plugins > Add New Plugin > Upload Plugin**, select the ZIP, and activate Recipe AI Summary Notice for Firefox.
-3. Review the title and message under **Settings > Recipe AI Summary Notice for Firefox** and test a recipe on a staging site.
+3. Review the dismissal mode, title, and message under **Settings > Recipe AI Summary Notice for Firefox** and test a recipe on a staging site.
 4. For an unrecognized recipe format, enable **Treat this as a recipe page** in the post editor.
 
 Upgrading from Recipe Warning 1.1.0: deactivate the old plugin before activating this renamed plugin. Settings and recipe flags are retained.
@@ -80,7 +95,7 @@ The plugin does not assess recipes, generated summaries, allergens, nutrition, o
 
 No analytics, tracking cookies, external services, remote assets, or AI calls are added by the plugin. Browser identification is checked locally.
 
-An explicit disabled-summary confirmation stores only an expiry timestamp under `recipe-warning-bypass-v1` in the site’s localStorage. The preference lasts seven days; expired or invalid entries are removed when next checked. Continue and Escape save no preference. Copying a link writes the current URL to the clipboard only when selected.
+An explicit disabled-summary confirmation stores only an expiry timestamp under `recipe-warning-bypass-v1` in the site’s localStorage. The preference lasts seven days; expired or invalid entries are removed when next checked. Ordinary dismissal in the default mode saves no preference. Copying a link writes the current URL to the clipboard only when selected.
 
 WordPress settings and manual recipe flags remain in the database after uninstall. Other parts of the site, its hosting, and the browser have separate data practices. See [context and disclosures](docs/CONTEXT-AND-DISCLOSURES.md) for details.
 

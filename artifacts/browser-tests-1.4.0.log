@@ -1,0 +1,273 @@
+
+Running 138 tests using 2 workers
+
+(node:96259) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:96258) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓    1 [chromium] › tests/dismissal.spec.js:27:1 › non-dismissible storage and clipboard denial still allow confirmation (3.4s)
+  ✓    2 [chromium] › tests/dismissal.spec.js:14:1 › non-dismissible blocks Escape, close, Continue and backdrop; confirmation persists (3.4s)
+  ✓    4 [chromium] › tests/dismissal.spec.js:38:1 › dismissible close is keyboard accessible and does not remember a preference (2.7s)
+  ✓    3 [chromium] › tests/dismissal.spec.js:45:1 › non-dismissible narrow layout and accessibility (4.0s)
+  ✓    5 [chromium] › tests/edge.spec.js:34:1 › large and malformed unrelated metadata does not hide a later recipe or freeze the page (1.7s)
+  ✓    6 [chromium] › tests/edge.spec.js:45:1 › 20,000 nested metadata levels fail safely and allow a later recipe (1.6s)
+  ✓    7 [chromium] › tests/edge.spec.js:56:1 › many unrelated metadata nodes keep controls responsive (1.3s)
+  ✓    8 [chromium] › tests/edge.spec.js:67:3 › corrupted or unreasonable remembered expiry (NaN) does not bypass (1.5s)
+  ✓    9 [chromium] › tests/edge.spec.js:67:3 › corrupted or unreasonable remembered expiry (Infinity) does not bypass (1.4s)
+  ✓   10 [chromium] › tests/edge.spec.js:67:3 › corrupted or unreasonable remembered expiry ({broken) does not bypass (1.3s)
+  ✓   11 [chromium] › tests/edge.spec.js:67:3 › corrupted or unreasonable remembered expiry (-1) does not bypass (1.3s)
+  ✓   12 [chromium] › tests/edge.spec.js:67:3 › corrupted or unreasonable remembered expiry (999999999999999) does not bypass (1.0s)
+  ✓   13 [chromium] › tests/edge.spec.js:77:3 › dialog API missing leaves the original article readable without errors (1.1s)
+  ✓   14 [chromium] › tests/edge.spec.js:77:3 › dialog API throws leaves the original article readable without errors (1.1s)
+  ✓   15 [chromium] › tests/edge.spec.js:92:1 › duplicate script delivery creates one modal with working dismissal (1.5s)
+  ✓   16 [chromium] › tests/edge.spec.js:105:3 › small 280x360 viewport at 200% text remains usable (1.2s)
+  ✓   17 [chromium] › tests/edge.spec.js:105:3 › small 640x280 viewport at 200% text remains usable (974ms)
+  ✓   18 [chromium] › tests/edge.spec.js:120:1 › reduced motion preference disables control transition (736ms)
+  ✓   19 [chromium] › tests/edge.spec.js:128:1 › clipboard fallback participates in forward and reverse keyboard focus order (979ms)
+  ✓   21 [chromium] › tests/edge.spec.js:163:3 › JavaScript disabled › recipe remains readable with no blocking warning (1.2s)
+  ✓   20 [chromium] › tests/edge.spec.js:149:1 › remembered bypass survives navigation back and forward (2.0s)
+  ✓   22 [chromium] › tests/edge.spec.js:172:3 › Firefox tablet user agent › Android tablets receive the same dismissible warning (852ms)
+  ✓   23 [chromium] › tests/edge.spec.js:179:1 › archives, feeds and embedded posts do not load warning assets (519ms)
+  ✓   24 [chromium] › tests/edge.spec.js:187:1 › root array recipe metadata is recognized (917ms)
+  ✓   25 [chromium] › tests/edge.spec.js:194:3 › dark theme colors leave readable warning text and primary controls (916ms)
+  ✓   26 [chromium] › tests/edge.spec.js:194:3 › low contrast theme colors leave readable warning text and primary controls (890ms)
+  ✓   27 [chromium] › tests/edge.spec.js:213:1 › late duplicate delivery does not reopen a dismissed warning (884ms)
+  ✓   28 [chromium] › tests/warning.spec.js:31:5 › Android Firefox › recipe warning appears (910ms)
+  ✓   29 [chromium] › tests/warning.spec.js:31:5 › iOS Firefox › recipe warning appears (870ms)
+  ✓   31 [chromium] › tests/warning.spec.js:31:5 › Android Chrome › recipe warning stays absent (922ms)
+  ✓   30 [chromium] › tests/warning.spec.js:31:5 › desktop Firefox › recipe warning stays absent (1.0s)
+  ✓   32 [chromium] › tests/warning.spec.js:31:5 › iOS Safari › recipe warning stays absent (1.0s)
+  ✓   33 [chromium] › tests/warning.spec.js:47:3 › plain page does not show the warning (947ms)
+  ✓   35 [chromium] › tests/warning.spec.js:47:3 › manual page shows the warning (911ms)
+  ✓   34 [chromium] › tests/warning.spec.js:47:3 › password page does not show the warning (946ms)
+  ✓   36 [chromium] › tests/warning.spec.js:47:3 › wprm page shows the warning (1.2s)
+  ✓   37 [chromium] › tests/warning.spec.js:56:1 › confirmation lasts seven days, survives reload, and expires (2.4s)
+  ✓   38 [chromium] › tests/warning.spec.js:71:3 › continue dismisses only the current page and restores readable focus (1.8s)
+  ✓   39 [chromium] › tests/warning.spec.js:71:3 › Escape dismisses only the current page and restores readable focus (1.5s)
+  ✓   40 [chromium] › tests/warning.spec.js:83:1 › copy link reports successful clipboard write (1.1s)
+  ✓   41 [chromium] › tests/warning.spec.js:93:1 › denied clipboard exposes a focused, selected copy fallback (1.3s)
+  ✓   42 [chromium] › tests/warning.spec.js:106:1 › unavailable storage still allows reading and never crashes (1.6s)
+  ✓   44 [chromium] › tests/warning.spec.js:137:1 › native modal traps keyboard focus and supports keyboard dismissal (1.2s)
+  ✓   43 [chromium] › tests/warning.spec.js:121:1 › malformed JSON-LD is ignored while valid recipe metadata still works (2.0s)
+  ✓   45 [chromium] › tests/warning.spec.js:162:1 › 320px layout has no horizontal overflow and usable controls (1.5s)
+  ✓   46 [chromium] › tests/warning.spec.js:179:1 › warning has no serious or critical automated accessibility violations (1.8s)
+(node:96635) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:96639) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   47 [firefox] › tests/dismissal.spec.js:14:1 › non-dismissible blocks Escape, close, Continue and backdrop; confirmation persists (6.5s)
+  ✓   48 [firefox] › tests/dismissal.spec.js:27:1 › non-dismissible storage and clipboard denial still allow confirmation (7.3s)
+  ✓   50 [firefox] › tests/dismissal.spec.js:38:1 › dismissible close is keyboard accessible and does not remember a preference (5.8s)
+  ✓   49 [firefox] › tests/dismissal.spec.js:45:1 › non-dismissible narrow layout and accessibility (7.7s)
+  ✓   51 [firefox] › tests/edge.spec.js:34:1 › large and malformed unrelated metadata does not hide a later recipe or freeze the page (2.6s)
+  ✓   53 [firefox] › tests/edge.spec.js:56:1 › many unrelated metadata nodes keep controls responsive (1.3s)
+  ✓   52 [firefox] › tests/edge.spec.js:45:1 › 20,000 nested metadata levels fail safely and allow a later recipe (2.0s)
+  ✓   54 [firefox] › tests/edge.spec.js:67:3 › corrupted or unreasonable remembered expiry (NaN) does not bypass (832ms)
+  ✓   55 [firefox] › tests/edge.spec.js:67:3 › corrupted or unreasonable remembered expiry (Infinity) does not bypass (834ms)
+  ✓   56 [firefox] › tests/edge.spec.js:67:3 › corrupted or unreasonable remembered expiry ({broken) does not bypass (853ms)
+  ✓   57 [firefox] › tests/edge.spec.js:67:3 › corrupted or unreasonable remembered expiry (-1) does not bypass (887ms)
+  ✓   58 [firefox] › tests/edge.spec.js:67:3 › corrupted or unreasonable remembered expiry (999999999999999) does not bypass (836ms)
+  ✓   59 [firefox] › tests/edge.spec.js:77:3 › dialog API missing leaves the original article readable without errors (857ms)
+  ✓   60 [firefox] › tests/edge.spec.js:77:3 › dialog API throws leaves the original article readable without errors (898ms)
+  ✓   61 [firefox] › tests/edge.spec.js:92:1 › duplicate script delivery creates one modal with working dismissal (1.0s)
+  ✓   62 [firefox] › tests/edge.spec.js:105:3 › small 280x360 viewport at 200% text remains usable (1.7s)
+  ✓   63 [firefox] › tests/edge.spec.js:105:3 › small 640x280 viewport at 200% text remains usable (1.8s)
+  ✓   65 [firefox] › tests/edge.spec.js:128:1 › clipboard fallback participates in forward and reverse keyboard focus order (3.1s)
+  ✓   64 [firefox] › tests/edge.spec.js:120:1 › reduced motion preference disables control transition (4.4s)
+  ✓   67 [firefox] › tests/edge.spec.js:163:3 › JavaScript disabled › recipe remains readable with no blocking warning (1.8s)
+  ✓   68 [firefox] › tests/edge.spec.js:172:3 › Firefox tablet user agent › Android tablets receive the same dismissible warning (5.4s)
+  ✓   69 [firefox] › tests/edge.spec.js:179:1 › archives, feeds and embedded posts do not load warning assets (1.6s)
+  ✓   66 [firefox] › tests/edge.spec.js:149:1 › remembered bypass survives navigation back and forward (11.0s)
+  ✓   70 [firefox] › tests/edge.spec.js:187:1 › root array recipe metadata is recognized (8.3s)
+  ✓   71 [firefox] › tests/edge.spec.js:194:3 › dark theme colors leave readable warning text and primary controls (7.5s)
+  ✘   72 [firefox] › tests/edge.spec.js:194:3 › low contrast theme colors leave readable warning text and primary controls (39.5s)
+  ✘   73 [firefox] › tests/edge.spec.js:213:1 › late duplicate delivery does not reopen a dismissed warning (39.5s)
+(node:97300) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:97301) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   75 [firefox] › tests/warning.spec.js:31:5 › iOS Firefox › recipe warning appears (36.4s)
+(node:97924) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   76 [firefox] › tests/warning.spec.js:31:5 › desktop Firefox › recipe warning stays absent (47ms)
+  ✘   74 [firefox] › tests/warning.spec.js:31:5 › Android Firefox › recipe warning appears (39.8s)
+
+
+  1) [firefox] › tests/edge.spec.js:194:3 › low contrast theme colors leave readable warning text and primary controls 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.goto: Test timeout of 30000ms exceeded.
+    Call log:
+      - navigating to "http://localhost:8881/?p=12", waiting until "load"
+
+
+      194 |   test(`${name} theme colors leave readable warning text and primary controls`, async ({ page }) => {
+      195 |     await injectHead(page, `<style>:root { --wp--preset--color--base:${paper}; --wp--preset--color--contrast:${ink}; }</style>`);
+    > 196 |     await page.goto(url());
+          |                ^
+      197 |     await expect(warning(page)).toBeVisible();
+      198 |     const ratios = await warning(page).evaluate(el => {
+      199 |       function luminance(color) {
+        at /Users/transl8r/Developer/recipe-warning/tests/edge.spec.js:196:16
+
+    Error: "route.fetch: Test timeout of 30000ms exceeded.
+    Call log:
+      - → GET http://localhost:8881/?p=12
+        - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:155.0) Gecko/20100101 Firefox/155.0
+        - accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+        - accept-encoding: gzip, deflate, br, zstd
+        - host: localhost:8881
+        - accept-language: en-US
+        - upgrade-insecure-requests: 1
+        - sec-fetch-dest: document
+        - sec-fetch-mode: navigate
+        - sec-fetch-site: none
+        - sec-fetch-user: ?1
+        - connection: keep-alive
+      - ← 301 Moved Permanently
+        - host: localhost:8881
+        - date: Sat, 03 Oct 2026 19:27:21 GMT
+        - connection: close
+        - x-powered-by: PHP/8.4.25
+        - content-type: text/html; charset=UTF-8
+        - x-pingback: http://localhost:8881/xmlrpc.php
+        - x-redirect-by: WordPress
+        - location: http://localhost:8881/2026/10/03/test-kitchen-oats-2/
+        - transfer-encoding: chunked
+      - → GET http://localhost:8881/2026/10/03/test-kitchen-oats-2/
+        - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:155.0) Gecko/20100101 Firefox/155.0
+        - accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+        - accept-encoding: gzip, deflate, br, zstd
+        - host: localhost:8881
+        - accept-language: en-US
+        - upgrade-insecure-requests: 1
+        - sec-fetch-dest: document
+        - sec-fetch-mode: navigate
+        - sec-fetch-site: none
+        - sec-fetch-user: ?1
+        - connection: keep-alive
+      - ← 200 OK
+        - host: localhost:8881
+        - date: Sat, 03 Oct 2026 19:27:22 GMT
+        - connection: close
+        - x-powered-by: PHP/8.4.25
+        - content-type: text/html; charset=UTF-8
+        - x-pingback: http://localhost:8881/xmlrpc.php
+        - link: <http://localhost:8881/wp-json/>; rel="https://api.w.org/", <http://localhost:8881/wp-json/wp/v2/posts/12>; rel="alternate"; title="JSON"; type="application/json", <http://localhost:8881/?p=12>; rel=shortlink
+        - transfer-encoding: chunked
+    " while running route callback.
+    Consider awaiting `await page.unrouteAll({ behavior: 'ignoreErrors' })`
+    before the end of the test to ignore remaining routes in flight.
+
+      10 |   await page.route('**/*', async route => {
+      11 |     if (route.request().resourceType() !== 'document') return route.continue();
+    > 12 |     const response = await route.fetch();
+         |                                  ^
+      13 |     await route.fulfill({ response, body: (await response.text()).replace('</head>', `${markup}</head>`) });
+      14 |   });
+      15 | }
+        at /Users/transl8r/Developer/recipe-warning/tests/edge.spec.js:12:34
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/test-results/edge-low-contrast-theme-co-e680a-g-text-and-primary-controls-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/test-results/edge-low-contrast-theme-co-e680a-g-text-and-primary-controls-firefox/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/test-results/edge-low-contrast-theme-co-e680a-g-text-and-primary-controls-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts/test-results/edge-low-contrast-theme-co-e680a-g-text-and-primary-controls-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [firefox] › tests/edge.spec.js:213:1 › late duplicate delivery does not reopen a dismissed warning 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.goto: Test timeout of 30000ms exceeded.
+    Call log:
+      - navigating to "http://localhost:8881/?p=12", waiting until "load"
+
+
+      212 |
+      213 | test('late duplicate delivery does not reopen a dismissed warning', async ({ page }) => {
+    > 214 |   await page.goto(url());
+          |              ^
+      215 |   await proceed(page).click();
+      216 |   await page.addScriptTag({ content: pluginScript });
+      217 |   await expect(warning(page)).toHaveCount(0);
+        at /Users/transl8r/Developer/recipe-warning/tests/edge.spec.js:214:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/test-results/edge-late-duplicate-delive-ac476--reopen-a-dismissed-warning-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/test-results/edge-late-duplicate-delive-ac476--reopen-a-dismissed-warning-firefox/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/test-results/edge-late-duplicate-delive-ac476--reopen-a-dismissed-warning-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts/test-results/edge-late-duplicate-delive-ac476--reopen-a-dismissed-warning-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [firefox] › tests/warning.spec.js:31:5 › Android Firefox › recipe warning appears ─────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Error Context: artifacts/test-results/warning-Android-Firefox-recipe-warning-appears-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/test-results/warning-Android-Firefox-recipe-warning-appears-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts/test-results/warning-Android-Firefox-recipe-warning-appears-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [firefox] › tests/warning.spec.js:31:5 › iOS Firefox › recipe warning appears ─────────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.goto: Test timeout of 30000ms exceeded.
+    Call log:
+      - navigating to "http://localhost:8881/?p=12", waiting until "load"
+
+
+      14 | const proceed = page => page.getByRole('button', { name: 'Continue to the original recipe' });
+      15 | async function visit(page, name = 'recipe') {
+    > 16 |   const response = await page.goto(fixtureURL(name));
+         |                               ^
+      17 |   expect(response.status()).toBe(200);
+      18 |   await page.waitForLoadState('load');
+      19 | }
+        at visit (/Users/transl8r/Developer/recipe-warning/tests/warning.spec.js:16:31)
+        at /Users/transl8r/Developer/recipe-warning/tests/warning.spec.js:33:13
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/test-results/warning-iOS-Firefox-recipe-warning-appears-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/test-results/warning-iOS-Firefox-recipe-warning-appears-firefox/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/test-results/warning-iOS-Firefox-recipe-warning-appears-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts/test-results/warning-iOS-Firefox-recipe-warning-appears-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4 failed
+    [firefox] › tests/edge.spec.js:194:3 › low contrast theme colors leave readable warning text and primary controls 
+    [firefox] › tests/edge.spec.js:213:1 › late duplicate delivery does not reopen a dismissed warning 
+    [firefox] › tests/warning.spec.js:31:5 › Android Firefox › recipe warning appears ──────────────
+    [firefox] › tests/warning.spec.js:31:5 › iOS Firefox › recipe warning appears ──────────────────
+  1 interrupted
+    [firefox] › tests/warning.spec.js:31:5 › desktop Firefox › recipe warning stays absent ─────────
+  62 did not run
+  71 passed (4.0m)

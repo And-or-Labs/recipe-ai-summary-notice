@@ -10,11 +10,11 @@ Page summaries are available in the Firefox browser on Android and iOS, with ava
 
 ## About
 
-Recipe AI Summary Notice for Firefox is an independent WordPress plugin that displays a dismissible notice to visitors whose browser identifies itself as Firefox on Android or iOS. Readers can continue to the original recipe, copy its link, or confirm that they have disabled page summaries. The plugin leaves the recipe and its structured data intact.
+Recipe AI Summary Notice for Firefox is an independent WordPress plugin that displays a notice, dismissible by default, to visitors whose browser identifies itself as Firefox on Android or iOS. In the default mode, readers can dismiss the notice, copy the recipe link, or confirm that they have disabled page summaries. Non-dismissible mode removes Continue and close, and blocks Escape and backdrop dismissal. Copy link remains available but does not close the notice; the disabled-summary confirmation closes it and is remembered for seven days when storage is available. The plugin leaves the recipe and its structured data intact.
 
 Credit for the original idea goes to Don Marti, whose [proposal](https://www.linkedin.com/posts/dmarti_should-recipe-sites-start-blocking-firefox-share-7511824622989008896-pGED/) prompted this plugin. That acknowledgement does not imply that he developed, reviewed, or endorsed this release.
 
-## Shipped default notice
+## Notice wording
 
 Title: Keep the original recipe
 
@@ -24,19 +24,25 @@ Message:
 >
 > You can continue to the original recipe or copy this link to use another browser.
 
+The stock wording above describes the default dismissible mode. Non-dismissible mode keeps the first paragraph and uses this second paragraph:
+
+> You can copy this link to use another browser. If you have disabled summaries, confirm below to view the original recipe.
+
+Custom publisher copy is preserved when the mode changes; publishers should review it for consistency. Clicking outside the notice does not dismiss either mode.
+
 Optional settings help: In the Firefox browser, open Settings > Page Summaries and turn off Summarize Pages. Turning off only Shake to Summarize can leave other ways to request summaries available. Menu names and availability may change. [Android instructions](https://support.mozilla.org/en-US/kb/summarize-pages-android), [iOS instructions](https://support.mozilla.org/en-US/kb/summarize-pages-ios)
 
 ## Privacy
 
 Recipe AI Summary Notice for Firefox runs on this website and in your browser. It adds no analytics, tracking cookies, external assets, or calls to AI services. Browser identification is checked locally using the browser's user-agent string and is not sent elsewhere by the plugin.
 
-If you confirm that page summaries are disabled, the plugin stores an expiry timestamp in this website's local browser storage. It uses that timestamp to suppress the notice for seven days. Clearing this website's browser storage removes the preference. Expired or invalid timestamps are removed when the warning next checks storage; browser storage may retain them until that visit. Continuing to the recipe or pressing Escape dismisses the current notice without saving a preference. The copy-link button writes the current page URL to your clipboard only when selected, or shows a selectable URL if clipboard access is unavailable.
+If you confirm that page summaries are disabled, the plugin stores an expiry timestamp in this website's local browser storage. It uses that timestamp to suppress the notice for seven days. Clearing this website's browser storage removes the preference. Expired or invalid timestamps are removed when the warning next checks storage; browser storage may retain them until that visit. In the default dismissible mode, ordinary dismissal closes the current notice without saving a preference. The copy-link button writes the current page URL to your clipboard only when selected, or shows a selectable URL if clipboard access is unavailable.
 
 Plugin settings and manual recipe-page flags are stored in the WordPress database and retained when the plugin is removed. Other plugins, this website, your browser, and your hosting provider may have separate data practices.
 
 ## Limitations
 
-The notice does not block scraping or AI summaries, remove structured data, verify browser settings, or establish whether summaries are available to a particular visitor. Browser identification and recipe detection can miss pages or visitors. The original page remains available when JavaScript or the required browser features are unavailable.
+Non-dismissible mode keeps the modal over the recipe until the reader confirms that summaries are disabled. That statement cannot be verified by the plugin. The notice does not block scraping or AI summaries, remove structured data, verify browser settings, or establish whether summaries are available to a particular visitor. Browser identification and recipe detection can miss pages or visitors. The original page remains available when JavaScript or the required browser features are unavailable.
 
 Recipe AI Summary Notice for Firefox does not evaluate recipes, food safety, allergens, nutrition, or generated summaries. It makes no claim that a site's recipes have been tested. It does not guarantee search rankings, publisher revenue, copyright protection, accessibility conformance, or legal compliance. Site owners control their notice wording and remain responsible for their published content.
 

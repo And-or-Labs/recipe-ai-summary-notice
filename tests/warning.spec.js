@@ -142,6 +142,8 @@ test('native modal traps keyboard focus and supports keyboard dismissal', async 
   await page.keyboard.press('Tab');
   await expect(proceed(page)).toBeFocused();
   await page.keyboard.press('Tab');
+  await expect(page.getByRole('button', { name: 'Close notice' })).toBeFocused();
+  await page.keyboard.press('Tab');
   await expect(copy(page)).toBeFocused();
   const outsideFocusBlocked = await page.evaluate(() => {
     const outside = document.querySelector('main a, header a');
@@ -149,6 +151,8 @@ test('native modal traps keyboard focus and supports keyboard dismissal', async 
     return document.activeElement !== outside;
   });
   expect(outsideFocusBlocked).toBe(true);
+  await page.keyboard.press('Shift+Tab');
+  await expect(page.getByRole('button', { name: 'Close notice' })).toBeFocused();
   await page.keyboard.press('Shift+Tab');
   await expect(proceed(page)).toBeFocused();
   await page.keyboard.press('Enter');

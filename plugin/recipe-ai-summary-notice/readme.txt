@@ -4,27 +4,28 @@ Tags: recipes, ai summaries, firefox
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.3.0
+Stable tag: 1.4.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Give mobile Firefox readers a choice to use the original recipe, with a dismissible notice about AI summaries.
+Add a recipe notice for mobile Firefox readers, with editable wording and a choice of dismissal modes.
 
 == Description ==
 
-Recipe AI Summary Notice for Firefox adds a reader notice to recipe pages when a visitor's browser identifies itself as Firefox on Android or iOS. Readers can continue to the original recipe, copy its link for another browser, or confirm that they have disabled page summaries. The original recipe and its structured data stay intact.
+Recipe AI Summary Notice for Firefox adds a reader notice to recipe pages when a visitor's browser identifies itself as Firefox on Android or iOS. The default mode lets readers dismiss the notice, copy the recipe link, or confirm that they have disabled page summaries. Publishers can also choose non-dismissible mode. The original recipe and its structured data stay intact.
 
 [Source code and issue tracker](https://github.com/And-or-Labs/recipe-ai-summary-notice)
 
 **Reader controls**
 
-* Continue or press Escape to dismiss the current notice.
-* Confirm summaries are disabled to remember that preference for seven days on this site in this browser.
+* In the default dismissible mode, use Continue, close, or Escape to dismiss the current notice. Clicking outside the notice does not dismiss it in either mode.
+* In non-dismissible mode, Continue and close are hidden and Escape is blocked. Copying the link remains available but does not close the notice.
+* In either mode, confirm summaries are disabled to close the notice and remember that confirmation for seven days on this site in this browser. This does not verify browser settings.
 * Copy the page link. If clipboard access is unavailable, select and copy the displayed URL.
 
 **Publisher controls**
 
-* Edit the title and message under Settings > Recipe AI Summary Notice for Firefox.
+* Edit the title, message, and dismissal mode under Settings > Recipe AI Summary Notice for Firefox. Stock wording adapts to the mode; custom publisher copy is preserved.
 * Recognize Recipe JSON-LD, Recipe microdata, WP Recipe Maker, and supported recipe blocks and shortcodes.
 * Mark other recipe formats with the editor's "Treat this as a recipe page" checkbox.
 * Review the Context and About & privacy tabs, including suggested text for WordPress's Privacy Policy Guide.
@@ -49,13 +50,13 @@ Recipe AI Summary Notice for Firefox is independent and is not affiliated with, 
 
 The plugin checks browser identification locally. It does not transmit it to another service, set cookies, track visitors, or call an AI service.
 
-Only an explicit disabled-summary confirmation saves an expiry timestamp in this site's localStorage under `recipe-warning-bypass-v1`. The timestamp suppresses the notice for seven days. Expired or invalid entries are removed the next time the warning checks storage; they may remain until that visit. Clearing this site's browser storage removes the preference. Continue and Escape store no preference. Copy writes the current URL to the clipboard only when selected.
+Only an explicit disabled-summary confirmation saves an expiry timestamp in this site's localStorage under `recipe-warning-bypass-v1`. The timestamp suppresses the notice for seven days. Expired or invalid entries are removed the next time the warning checks storage; they may remain until that visit. Clearing this site's browser storage removes the preference. Ordinary dismissal in the default mode stores no preference. Copy writes the current URL to the clipboard only when selected.
 
 Settings and manual recipe flags are stored in the WordPress database and retained on uninstall. The plugin does not add personal information to those records. Other parts of the site, its hosting, and the browser have separate data practices.
 
 **Limitations and license**
 
-This is a notice, not a blocker. It does not prevent scraping or summarization, remove recipe data, verify browser settings, or determine whether a particular visitor has the summary feature. Browser and recipe detection are approximate. Recipes inserted after page readiness, unusual formats, or metadata exceeding scanning limits should use the manual checkbox.
+Non-dismissible mode keeps the modal over the recipe until the reader confirms that summaries are disabled. It does not prevent scraping or summarization, remove recipe data, verify browser settings, or determine whether a particular visitor has the summary feature. Browser and recipe detection are approximate. Recipes inserted after page readiness, unusual formats, or metadata exceeding scanning limits should use the manual checkbox.
 
 The plugin does not assess recipes, allergens, nutrition, food safety, or generated summaries. It makes no claim that a site's recipes were tested. It provides technical information, not medical, food-safety, or legal advice. It does not guarantee revenue, search rankings, copyright protection, accessibility conformance, or legal compliance. Publishers control their copy and remain responsible for their content.
 
@@ -65,9 +66,9 @@ Licensed under GPL version 2 or any later version. Provided without warranty to 
 
 Updating from the GitHub release named Recipe Warning: deactivate the old plugin before activating this renamed plugin. Existing settings and recipe flags are retained. Do not activate both copies together.
 
-1. Upload recipe-ai-summary-notice-1.3.0.zip under Plugins > Add New Plugin > Upload Plugin.
+1. Upload recipe-ai-summary-notice-1.4.0.zip under Plugins > Add New Plugin > Upload Plugin.
 2. Activate Recipe AI Summary Notice for Firefox.
-3. Review the wording under Settings > Recipe AI Summary Notice for Firefox and test on a staging site.
+3. Review the dismissal mode and wording under Settings > Recipe AI Summary Notice for Firefox and test on a staging site.
 4. For a recipe without recognized markup, check "Treat this as a recipe page" in its editor.
 
 == Frequently Asked Questions ==
@@ -76,10 +77,13 @@ Updating from the GitHub release named Recipe Warning: deactivate the old plugin
 No. Browser settings remain under the reader's control. The confirmation button records a reader's statement; it does not verify or change settings.
 
 = Does it change recipes or search metadata? =
-No. Original content and structured data are retained. Visitors can always continue.
+No. Original content and structured data are retained. The default mode allows immediate dismissal. Non-dismissible mode requires the disabled-summary confirmation to close the working modal.
 
 = What if JavaScript, storage, or modal dialogs are blocked? =
-Without JavaScript or a working modal-dialog API, the original page remains available. If storage fails, visitors can still dismiss the current notice.
+Without JavaScript or a working modal-dialog API, the original page remains available. If storage fails, available controls still work: ordinary dismissal in the default mode, or the disabled-summary confirmation in either mode. The confirmation then closes only the current notice.
+
+= What changes in non-dismissible mode? =
+Continue and close are hidden, and Escape and backdrop dismissal are blocked. Copy link remains available but does not close the notice. "I've disabled summaries" closes the notice and remembers that confirmation for seven days when storage is available. The plugin cannot verify that confirmation or prevent summarization. JavaScript or dialog failure still leaves the page available.
 
 = What detection limits keep the page responsive? =
 The plugin inspects up to 64 JSON-LD blocks, skips blocks over 262,144 characters, reads up to 1,048,576 characters total, and scans at most 10,000 metadata nodes per block. Use the manual checkbox for larger or dynamically injected recipes.
@@ -94,6 +98,12 @@ The exact original default message is replaced with neutral wording. Custom mess
 Settings and manual recipe flags are retained. Recipes are never changed by the plugin. Saved browser preferences can be removed by clearing this site's browser storage.
 
 == Changelog ==
+
+= 1.4.0 =
+* Redesigned the reader modal and publisher preview.
+* Added a dismissal setting, enabled by default, with a non-dismissible option.
+* Adapted stock notice wording to the selected mode while preserving custom copy.
+* Kept copy-link and disabled-summary confirmation available in both modes.
 
 = 1.3.0 =
 * Added WordPress component-based settings with a live notice preview and native form fallback.

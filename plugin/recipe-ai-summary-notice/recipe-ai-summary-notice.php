@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Recipe AI Summary Notice for Firefox
  * Description: Shows mobile Firefox visitors a recipe summary warning with a choice to continue to the original recipe.
- * Version: 1.3.0
+ * Version: 1.4.0
  * Plugin URI: https://github.com/And-or-Labs/recipe-ai-summary-notice
  * Author: And/or Labs Inc.
  * Author URI: https://github.com/And-or-Labs
@@ -35,9 +35,24 @@ final class Recipe_Warning {
 	public static function defaults() {
 		return array(
 			'enabled' => true,
+			'dismissible' => true,
 			'title'   => __( 'Keep the original recipe', 'recipe-ai-summary-notice' ),
 			'message' => __( "Firefox offers optional AI summaries on some mobile devices. A generated summary can differ from the original recipe.\n\nYou can continue to the original recipe or copy this link to use another browser.", 'recipe-ai-summary-notice' ),
 		);
+	}
+
+	public static function required_message() {
+		return __( "Firefox offers optional AI summaries on some mobile devices. A generated summary can differ from the original recipe.\n\nYou can copy this link to use another browser. If you have disabled summaries, confirm below to view the original recipe.", 'recipe-ai-summary-notice' );
+	}
+
+	public static function visitor_message( $options ) {
+		$defaults = self::defaults();
+		// Match only stock copy, allowing textarea line-ending differences.
+		$message = trim( str_replace( array( "\r\n", "\r" ), "\n", $options['message'] ) );
+		if ( ! $options['dismissible'] && $message === $defaults['message'] ) {
+			return self::required_message();
+		}
+		return $options['message'];
 	}
 
 	public static function options() {
@@ -82,6 +97,7 @@ final class Recipe_Warning {
 		$message = isset( $input['message'] ) && is_string( $input['message'] ) ? sanitize_textarea_field( $input['message'] ) : '';
 		return array(
 			'enabled' => isset( $input['enabled'] ) && in_array( $input['enabled'], array( true, 1, '1' ), true ),
+			'dismissible' => ! array_key_exists( 'dismissible', $input ) || in_array( $input['dismissible'], array( true, 1, '1' ), true ),
 			'title'   => '' !== trim( $title ) ? self::limit_text( $title, 180 ) : $defaults['title'],
 			'message' => '' !== trim( $message ) ? self::limit_text( $message, 4000 ) : $defaults['message'],
 		);
@@ -104,14 +120,19 @@ final class Recipe_Warning {
 			return;
 		}
 		$base = plugin_dir_url( __FILE__ );
-		wp_enqueue_style( 'recipe-warning-admin', $base . 'assets/admin.css', array( 'wp-components' ), '1.3.0' );
-		wp_enqueue_script( 'recipe-warning-admin', $base . 'assets/admin.js', array( 'wp-element', 'wp-components' ), '1.3.0', true );
+		wp_enqueue_style( 'recipe-warning-admin', $base . 'assets/admin.css', array( 'wp-components' ), '1.4.0' );
+		wp_enqueue_script( 'recipe-warning-admin', $base . 'assets/admin.js', array( 'wp-element', 'wp-components' ), '1.4.0', true );
 		$config = array(
 			'options' => self::options(),
 			'defaults' => self::defaults(),
+			'requiredMessage' => self::required_message(),
 			'strings' => array(
 				'visibility' => __( 'Warning', 'recipe-ai-summary-notice' ),
 				'enable' => __( 'Enable on recipe pages', 'recipe-ai-summary-notice' ),
+				'dismissible' => __( 'Allow readers to dismiss the notice', 'recipe-ai-summary-notice' ),
+				'dismissibleHelp' => __( 'When off, Continue, close, Escape, and clicking outside cannot dismiss the notice. Readers can still copy the link or confirm that summaries are disabled to dismiss it for seven days. This does not verify browser settings or block AI summaries.', 'recipe-ai-summary-notice' ),
+				'copyLink' => __( 'Copy link for another browser', 'recipe-ai-summary-notice' ),
+				'bypass' => __( 'I’ve disabled summaries', 'recipe-ai-summary-notice' ),
 				'limits' => __( 'This warning does not prevent AI summaries or verify browser settings.', 'recipe-ai-summary-notice' ),
 				'copy' => __( 'Visitor wording', 'recipe-ai-summary-notice' ),
 				'title' => __( 'Title', 'recipe-ai-summary-notice' ),
@@ -150,7 +171,7 @@ final class Recipe_Warning {
 			<div class="rw-admin-content">
 			<?php if ( 'settings' === $tab ) : ?>
 			<div class="rw-intro">
-			<p><?php esc_html_e( 'Show a warning to mobile Firefox visitors on recipe pages. Visitors can continue to the original recipe. Only confirmation that summaries are disabled is remembered for seven days on this site.', 'recipe-ai-summary-notice' ); ?></p>
+			<p><?php esc_html_e( 'Show a warning to mobile Firefox visitors on recipe pages. Choose whether readers can dismiss it. Only confirmation that summaries are disabled is remembered for seven days on this site.', 'recipe-ai-summary-notice' ); ?></p>
 			<p><?php esc_html_e( 'This warning does not prevent AI summaries or verify browser settings.', 'recipe-ai-summary-notice' ); ?></p>
 			</div>
 			<form action="options.php" method="post" class="rw-settings-form">
@@ -162,6 +183,10 @@ final class Recipe_Warning {
 					<tr>
 						<th scope="row"><?php esc_html_e( 'Warning', 'recipe-ai-summary-notice' ); ?></th>
 						<td><label><input type="checkbox" name="recipe_warning_options[enabled]" value="1" <?php checked( ! empty( $options['enabled'] ) ); ?>> <?php esc_html_e( 'Enable on recipe pages', 'recipe-ai-summary-notice' ); ?></label></td>
+					</tr>
+					<tr>
+						<th scope="row"><?php esc_html_e( 'Dismissal', 'recipe-ai-summary-notice' ); ?></th>
+						<td><input type="hidden" name="recipe_warning_options[dismissible]" value="0"><label><input type="checkbox" name="recipe_warning_options[dismissible]" value="1" <?php checked( $options['dismissible'] ); ?>> <?php esc_html_e( 'Allow readers to dismiss the notice', 'recipe-ai-summary-notice' ); ?></label><p class="description"><?php esc_html_e( 'When off, Continue, close, Escape, and clicking outside cannot dismiss the notice. Readers can still copy the link or confirm that summaries are disabled to dismiss it for seven days. This does not verify browser settings or block AI summaries.', 'recipe-ai-summary-notice' ); ?></p></td>
 					</tr>
 					<tr>
 						<th scope="row"><label for="recipe-warning-title"><?php esc_html_e( 'Title', 'recipe-ai-summary-notice' ); ?></label></th>
@@ -182,7 +207,7 @@ final class Recipe_Warning {
 			<?php elseif ( 'context' === $tab ) : ?>
 			<section class="rw-admin-card rw-reading">
 			<h2><?php esc_html_e( 'Why this plugin exists', 'recipe-ai-summary-notice' ); ?></h2>
-			<p><?php esc_html_e( 'Firefox offers optional, user-controlled AI summaries on supported mobile devices. A summary can differ from its source. This plugin gives recipe publishers a way to explain that distinction while allowing visitors to continue to the original recipe.', 'recipe-ai-summary-notice' ); ?></p>
+			<p><?php esc_html_e( 'Firefox offers optional, user-controlled AI summaries on supported mobile devices. A summary can differ from its source. This plugin gives recipe publishers a way to explain that distinction with an optional dismissible mode.', 'recipe-ai-summary-notice' ); ?></p>
 			<p><?php esc_html_e( 'In its October 1, 2026 article, Mozilla describes recipe-specific prompts and routing through recipe metadata to improve summary completeness. This does not establish that every summary is wrong, or that any particular summary is safe or complete.', 'recipe-ai-summary-notice' ); ?></p>
 			<p><a href="<?php echo esc_url( 'https://blog.mozilla.org/en/firefox/firefox-ai/prompt-tuning-firefox-shake-to-summarize-recipes/' ); ?>"><?php esc_html_e( 'Read Mozilla’s recipe-summary implementation article', 'recipe-ai-summary-notice' ); ?></a></p>
 			<p><a href="https://support.mozilla.org/en-US/kb/summarize-pages-android"><?php esc_html_e( 'Mozilla’s Android summary settings', 'recipe-ai-summary-notice' ); ?></a> | <a href="https://support.mozilla.org/en-US/kb/summarize-pages-ios"><?php esc_html_e( 'Mozilla’s iOS summary settings', 'recipe-ai-summary-notice' ); ?></a></p>
@@ -193,7 +218,7 @@ final class Recipe_Warning {
 			<section class="rw-admin-card rw-reading">
 			<h2><?php esc_html_e( 'About', 'recipe-ai-summary-notice' ); ?></h2>
 			<p><?php esc_html_e( 'Credit for the original idea goes to Don Marti, whose proposal prompted this plugin. This attribution is not an endorsement. Recipe AI Summary Notice for Firefox is independently developed and is not affiliated with or endorsed by Mozilla, Firefox, WordPress, or Don Marti. Product names identify the relevant products and remain the property of their respective owners.', 'recipe-ai-summary-notice' ); ?></p>
-			<p><?php esc_html_e( 'The plugin adds a dismissible notice. It leaves the original recipe content unchanged, does not block summarization, and cannot detect or change browser summary settings. The “I’ve disabled summaries” button records the visitor’s statement, not a verified browser setting.', 'recipe-ai-summary-notice' ); ?></p>
+			<p><?php esc_html_e( 'The plugin adds a notice that is dismissible by default. Publishers can disable general dismissal; visitors can still copy the link or confirm that summaries are disabled. It leaves the original recipe content unchanged, does not block summarization, and cannot detect or change browser summary settings. The “I’ve disabled summaries” button records the visitor’s statement, not a verified browser setting.', 'recipe-ai-summary-notice' ); ?></p>
 			<p><?php esc_html_e( 'Firefox and Mozilla are trademarks of the Mozilla Foundation in the United States and other countries.', 'recipe-ai-summary-notice' ); ?></p>
 			</section>
 			<section class="rw-admin-card rw-reading">
@@ -268,17 +293,21 @@ final class Recipe_Warning {
 			return;
 		}
 		$base = plugin_dir_url( __FILE__ );
-		wp_enqueue_style( 'recipe-warning', $base . 'assets/recipe-warning.css', array(), '1.3.0' );
-		wp_enqueue_script( 'recipe-warning', $base . 'assets/recipe-warning.js', array(), '1.3.0', true );
+		wp_enqueue_style( 'recipe-warning', $base . 'assets/recipe-warning.css', array(), '1.4.0' );
+		wp_enqueue_script( 'recipe-warning', $base . 'assets/recipe-warning.js', array(), '1.4.0', true );
 		$config = array(
 			'enabled'    => true,
 			'title'      => $options['title'],
-			'message'    => $options['message'],
+			'message'    => self::visitor_message( $options ),
+			'dismissible' => $options['dismissible'],
 			'recipeHint' => self::recipe_hint( $post ),
 			'storageKey' => 'recipe-warning-bypass-v1',
 			'ttl'        => 604800000,
 			'strings'    => array(
 				'label'        => __( 'A note for Firefox readers', 'recipe-ai-summary-notice' ),
+				'close' => __( 'Close notice', 'recipe-ai-summary-notice' ),
+				'preferenceLabel' => __( 'Already changed your Firefox settings?', 'recipe-ai-summary-notice' ),
+				'requiredNote' => __( 'To dismiss this notice, confirm that you have disabled summaries. This records your statement, not a verified browser setting.', 'recipe-ai-summary-notice' ),
 				'copy'         => __( 'Copy link for another browser', 'recipe-ai-summary-notice' ),
 				'bypass'       => __( 'I’ve disabled summaries', 'recipe-ai-summary-notice' ),
 				'proceed'      => __( 'Continue to the original recipe', 'recipe-ai-summary-notice' ),

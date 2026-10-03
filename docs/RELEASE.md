@@ -1,8 +1,8 @@
-# Recipe AI Summary Notice for Firefox 1.3.0
+# Recipe AI Summary Notice for Firefox 1.4.0
 
 ## Submission package
 
-Archive: `artifacts/recipe-ai-summary-notice-1.3.0.zip`.
+Archive: `artifacts/recipe-ai-summary-notice-1.4.0.zip`.
 
 Repository: https://github.com/And-or-Labs/recipe-ai-summary-notice
 
@@ -10,7 +10,7 @@ Public author: And/or Labs Inc. License: GPL-2.0-or-later.
 
 Use the owner's existing WordPress.org account for directory submission. A new company account is not required for company attribution. The submitting account and additional committer access determine directory management; the public Author field does not create account access.
 
-WordPress.org submission owner: `eclecticv`, explicitly authorized October 3, 2026. Contributors: `eclecticv`, `vj1987`. Submitted October 3, 2026 under `eclecticv`. WordPress.org shows **Awaiting Review** for version 1.3.0. The initial automated scan passed; its text-domain warning resulted from the automatically assigned suffix. The assigned slug was then changed successfully to `recipe-ai-summary-notice`, matching the packaged directory and text domain. Manual approval and a public directory listing are still pending.
+WordPress.org submission owner: `eclecticv`, explicitly authorized October 3, 2026. Contributors: `eclecticv`, `vj1987`. Original submission: October 3, 2026 under `eclecticv`. WordPress.org last confirmed **Awaiting Review** for version 1.3.0. Version 1.4.0 is the latest tested GitHub package; its directory upload is pending browser reconnection. The initial automated scan passed; its text-domain warning resulted from the automatically assigned suffix. The assigned slug was then changed successfully to `recipe-ai-summary-notice`, matching the packaged directory and text domain. Manual approval and a public directory listing are still pending.
 
 Submission: https://wordpress.org/plugins/developers/add/
 
