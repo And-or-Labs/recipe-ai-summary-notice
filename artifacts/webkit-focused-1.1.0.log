@@ -1,0 +1,48 @@
+
+Running 4 tests using 2 workers
+
+(node:29649) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:29647) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [webkit] › tests/edge.spec.js:35:1 › 20,000 nested metadata levels fail safely and allow a later recipe (23.5s)
+  ✘  1 [webkit] › tests/edge.spec.js:23:1 › large and malformed unrelated metadata does not hide a later recipe or freeze the page (26.1s)
+(node:29876) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 [webkit] › tests/edge.spec.js:118:1 › clipboard fallback participates in forward and reverse keyboard focus order (7.4s)
+  ✓  4 [webkit] › tests/warning.spec.js:137:1 › native modal traps keyboard focus and supports keyboard dismissal (1.9s)
+
+
+  1) [webkit] › tests/edge.spec.js:23:1 › large and malformed unrelated metadata does not hide a later recipe or freeze the page 
+
+    Error: expect(received).toBeLessThan(expected)
+
+    Expected: < 10000
+    Received:   22931
+
+      29 |   await expect(warning(page)).toBeVisible();
+      30 |   await proceed(page).click();
+    > 31 |   expect(Date.now() - start).toBeLessThan(10000);
+         |                              ^
+      32 |   expect(errors).toEqual([]);
+      33 | });
+      34 |
+        at /Users/transl8r/Developer/recipe-warning/tests/edge.spec.js:31:30
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/test-results/edge-large-and-malformed-u-f3402-r-recipe-or-freeze-the-page-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/test-results/edge-large-and-malformed-u-f3402-r-recipe-or-freeze-the-page-webkit/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/test-results/edge-large-and-malformed-u-f3402-r-recipe-or-freeze-the-page-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts/test-results/edge-large-and-malformed-u-f3402-r-recipe-or-freeze-the-page-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [webkit] › tests/edge.spec.js:23:1 › large and malformed unrelated metadata does not hide a later recipe or freeze the page 
+  3 passed (39.3s)

@@ -7,3 +7,7 @@ artifacts/*.zip
 .DS_Store
 artifacts/playwright-report/
 artifacts/test-results/
+
+site-minimum/
+artifacts/*-results/
+artifacts/minimum-setup.log

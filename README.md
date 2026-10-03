@@ -20,12 +20,12 @@ Source lives in `plugin/recipe-warning/`. The local Studio site is excluded from
 
 ```sh
 npm ci
-npx playwright install firefox
+npx playwright install firefox webkit
 studio site start --path ./site --skip-browser
 npm test
 ```
 
-Tests use installed Google Chrome and Playwright Firefox. Mobile identity and viewport are emulated; this is not physical-device testing of Firefox's summarization feature.
+Tests use installed Google Chrome, Playwright Firefox, and WebKit. Mobile identity and viewport are emulated; this is not physical-device testing of Firefox's summarization feature.
 
 Create or refresh fixture pages:
 
@@ -51,4 +51,26 @@ studio wp --path ./site eval-file "$PWD/site/recipe-warning-checks.php"
 
 This is a warning plugin. It does not withhold recipe data or prevent Firefox from summarizing it. It cannot confirm browser settings, distinguish enabled/disabled summarization, or identify a spoofed user agent. Dynamic recipes injected after initial page readiness should use the editor checkbox.
 
-Idea and original warning wording: Don Marti. Source conversation: https://www.linkedin.com/posts/dmarti_should-recipe-sites-start-blocking-firefox-share-7511824622989008896-pGED/
+Developed by And/or Labs Inc. Inspired by a discussion with Don Marti; attribution does not imply endorsement. Source conversation: https://www.linkedin.com/posts/dmarti_should-recipe-sites-start-blocking-firefox-share-7511824622989008896-pGED/
+
+## Release 1.1.0
+
+Adds sourced news context, About/privacy/license disclosures, neutral defaults, translation support, bounded metadata scanning, contrast validation, and failure handling. The exact original stock warning is migrated; edited publisher messages are preserved.
+
+Release archive: `artifacts/recipe-warning-1.1.0.zip`.
+
+Admin context: http://localhost:8881/wp-admin/options-general.php?page=recipe-warning&tab=context
+
+Admin About/privacy: http://localhost:8881/wp-admin/options-general.php?page=recipe-warning&tab=about
+
+Additional checks:
+
+```sh
+node tests/content-check.cjs
+node tests/load.mjs
+node tests/minimum-check.cjs
+```
+
+The load test sends 200 requests to the local test site with four concurrent requests. It does not target production. The minimum-version check uses the separate Studio site at http://localhost:8882 and its generated fixtures.
+
+See `docs/CONTEXT-AND-DISCLOSURES.md` for source-backed disclosures. These are technical publication materials, not a legal opinion or a guarantee against claims.

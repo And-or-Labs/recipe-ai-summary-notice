@@ -1,0 +1,213 @@
+
+Running 42 tests using 2 workers
+
+(node:26878) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:26877) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   2 [webkit] › tests/edge.spec.js:23:1 › large and malformed unrelated metadata does not hide a later recipe or freeze the page (8.6s)
+(node:27139) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   1 [webkit] › tests/edge.spec.js:35:1 › 20,000 nested metadata levels fail safely and allow a later recipe (8.8s)
+(node:27176) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   3 [webkit] › tests/edge.spec.js:45:1 › many unrelated metadata nodes keep controls responsive (7.5s)
+  ✓   4 [webkit] › tests/edge.spec.js:57:3 › corrupted or unreasonable remembered expiry (NaN) does not bypass (5.0s)
+  ✓   5 [webkit] › tests/edge.spec.js:57:3 › corrupted or unreasonable remembered expiry (Infinity) does not bypass (4.7s)
+  ✓   6 [webkit] › tests/edge.spec.js:57:3 › corrupted or unreasonable remembered expiry ({broken) does not bypass (4.7s)
+  ✓   8 [webkit] › tests/edge.spec.js:57:3 › corrupted or unreasonable remembered expiry (999999999999999) does not bypass (5.4s)
+  ✓   7 [webkit] › tests/edge.spec.js:57:3 › corrupted or unreasonable remembered expiry (-1) does not bypass (5.2s)
+  ✓  10 [webkit] › tests/edge.spec.js:67:3 › dialog API throws leaves the original article readable without errors (5.3s)
+  ✓   9 [webkit] › tests/edge.spec.js:67:3 › dialog API missing leaves the original article readable without errors (5.8s)
+  ✓  12 [webkit] › tests/edge.spec.js:95:3 › small 280x360 viewport at 200% text remains usable (5.1s)
+  ✓  11 [webkit] › tests/edge.spec.js:82:1 › duplicate script delivery creates one modal with working dismissal (5.1s)
+  ✓  14 [webkit] › tests/edge.spec.js:110:1 › reduced motion preference disables control transition (4.3s)
+  ✓  13 [webkit] › tests/edge.spec.js:95:3 › small 640x280 viewport at 200% text remains usable (4.3s)
+  ✘  15 [webkit] › tests/edge.spec.js:118:1 › clipboard fallback participates in forward and reverse keyboard focus order (14.2s)
+  ✓  16 [webkit] › tests/edge.spec.js:135:1 › remembered bypass survives navigation back and forward (15.5s)
+(node:27648) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  17 [webkit] › tests/edge.spec.js:158:3 › Firefox tablet user agent › Android tablets receive the same dismissible warning (10.1s)
+  ✓  19 [webkit] › tests/edge.spec.js:165:1 › archives, feeds and embedded posts do not load warning assets (3.4s)
+  ✓  18 [webkit] › tests/edge.spec.js:149:3 › JavaScript disabled › recipe remains readable with no blocking warning (17.3s)
+  ✓  20 [webkit] › tests/edge.spec.js:173:1 › root array recipe metadata is recognized (15.3s)
+  ✓  21 [webkit] › tests/edge.spec.js:180:3 › dark theme colors leave readable warning text and primary controls (6.5s)
+  ✓  22 [webkit] › tests/edge.spec.js:180:3 › low contrast theme colors leave readable warning text and primary controls (3.9s)
+  ✓  23 [webkit] › tests/edge.spec.js:199:1 › late duplicate delivery does not reopen a dismissed warning (3.7s)
+  ✓  25 [webkit] › tests/warning.spec.js:31:5 › iOS Firefox › recipe warning appears (2.5s)
+  ✓  24 [webkit] › tests/warning.spec.js:31:5 › Android Firefox › recipe warning appears (2.5s)
+  ✓  27 [webkit] › tests/warning.spec.js:31:5 › Android Chrome › recipe warning stays absent (2.3s)
+  ✓  26 [webkit] › tests/warning.spec.js:31:5 › desktop Firefox › recipe warning stays absent (2.3s)
+  ✓  28 [webkit] › tests/warning.spec.js:31:5 › iOS Safari › recipe warning stays absent (3.7s)
+  ✓  29 [webkit] › tests/warning.spec.js:47:3 › plain page does not show the warning (3.7s)
+  ✓  30 [webkit] › tests/warning.spec.js:47:3 › password page does not show the warning (3.2s)
+  ✓  31 [webkit] › tests/warning.spec.js:47:3 › manual page shows the warning (3.2s)
+  ✓  32 [webkit] › tests/warning.spec.js:47:3 › wprm page shows the warning (5.2s)
+  ✓  33 [webkit] › tests/warning.spec.js:56:1 › confirmation lasts seven days, survives reload, and expires (11.8s)
+  ✓  34 [webkit] › tests/warning.spec.js:71:3 › continue dismisses only the current page and restores readable focus (7.5s)
+  ✓  36 [webkit] › tests/warning.spec.js:83:1 › copy link reports successful clipboard write (8.5s)
+  ✓  35 [webkit] › tests/warning.spec.js:71:3 › Escape dismisses only the current page and restores readable focus (10.6s)
+  ✓  37 [webkit] › tests/warning.spec.js:93:1 › denied clipboard exposes a focused, selected copy fallback (8.9s)
+  ✓  38 [webkit] › tests/warning.spec.js:106:1 › unavailable storage still allows reading and never crashes (9.8s)
+  ✓  39 [webkit] › tests/warning.spec.js:121:1 › malformed JSON-LD is ignored while valid recipe metadata still works (17.6s)
+  ✘  40 [webkit] › tests/warning.spec.js:137:1 › native modal traps keyboard focus and supports keyboard dismissal (22.1s)
+  ✓  41 [webkit] › tests/warning.spec.js:158:1 › 320px layout has no horizontal overflow and usable controls (8.4s)
+(node:28391) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  42 [webkit] › tests/warning.spec.js:175:1 › warning has no serious or critical automated accessibility violations (11.0s)
+
+
+  1) [webkit] › tests/edge.spec.js:23:1 › large and malformed unrelated metadata does not hide a later recipe or freeze the page 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "The object is in an invalid state.",
+    + ]
+
+      30 |   await proceed(page).click();
+      31 |   expect(Date.now() - start).toBeLessThan(10000);
+    > 32 |   expect(errors).toEqual([]);
+         |                  ^
+      33 | });
+      34 |
+      35 | test('20,000 nested metadata levels fail safely and allow a later recipe', async ({ page }) => {
+        at /Users/transl8r/Developer/recipe-warning/tests/edge.spec.js:32:18
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/test-results/edge-large-and-malformed-u-f3402-r-recipe-or-freeze-the-page-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/test-results/edge-large-and-malformed-u-f3402-r-recipe-or-freeze-the-page-webkit/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/test-results/edge-large-and-malformed-u-f3402-r-recipe-or-freeze-the-page-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts/test-results/edge-large-and-malformed-u-f3402-r-recipe-or-freeze-the-page-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [webkit] › tests/edge.spec.js:35:1 › 20,000 nested metadata levels fail safely and allow a later recipe 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "The object is in an invalid state.",
+    + ]
+
+      40 |   await expect(warning(page)).toBeVisible();
+      41 |   await proceed(page).click();
+    > 42 |   expect(errors).toEqual([]);
+         |                  ^
+      43 | });
+      44 |
+      45 | test('many unrelated metadata nodes keep controls responsive', async ({ page }) => {
+        at /Users/transl8r/Developer/recipe-warning/tests/edge.spec.js:42:18
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/test-results/edge-20-000-nested-metadat-cad61-ly-and-allow-a-later-recipe-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/test-results/edge-20-000-nested-metadat-cad61-ly-and-allow-a-later-recipe-webkit/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/test-results/edge-20-000-nested-metadat-cad61-ly-and-allow-a-later-recipe-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts/test-results/edge-20-000-nested-metadat-cad61-ly-and-allow-a-later-recipe-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [webkit] › tests/edge.spec.js:118:1 › clipboard fallback participates in forward and reverse keyboard focus order 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  getByRole('button', { name: 'Continue to the original recipe' })
+    Expected: focused
+    Received: inactive
+    Timeout:  7000ms
+
+    Call log:
+      - Expect "toBeFocused" getByRole('button', { name: 'Continue to the original recipe' }) with timeout 7000ms
+      - waiting for getByRole('button', { name: 'Continue to the original recipe' })
+        16 × locator resolved to <button type="button" class="rw-link">Continue to the original recipe</button>
+           - unexpected value "inactive"
+
+
+      128 |   await expect(field).toBeFocused();
+      129 |   await page.keyboard.press('Shift+Tab');
+    > 130 |   await expect(proceed(page)).toBeFocused();
+          |                               ^
+      131 |   await page.keyboard.press('Enter');
+      132 |   await expect(warning(page)).toHaveCount(0);
+      133 | });
+        at /Users/transl8r/Developer/recipe-warning/tests/edge.spec.js:130:31
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/test-results/edge-clipboard-fallback-pa-5ba80-everse-keyboard-focus-order-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/test-results/edge-clipboard-fallback-pa-5ba80-everse-keyboard-focus-order-webkit/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/test-results/edge-clipboard-fallback-pa-5ba80-everse-keyboard-focus-order-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts/test-results/edge-clipboard-fallback-pa-5ba80-everse-keyboard-focus-order-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [webkit] › tests/warning.spec.js:137:1 › native modal traps keyboard focus and supports keyboard dismissal 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  getByRole('button', { name: 'I’ve disabled summaries' })
+    Expected: focused
+    Received: inactive
+    Timeout:  7000ms
+
+    Call log:
+      - Expect "toBeFocused" getByRole('button', { name: 'I’ve disabled summaries' }) with timeout 7000ms
+      - waiting for getByRole('button', { name: 'I’ve disabled summaries' })
+        16 × locator resolved to <button type="button" class="rw-secondary">I’ve disabled summaries</button>
+           - unexpected value "inactive"
+
+
+      139 |   await expect(copy(page)).toBeFocused();
+      140 |   await page.keyboard.press('Tab');
+    > 141 |   await expect(bypass(page)).toBeFocused();
+          |                              ^
+      142 |   await page.keyboard.press('Tab');
+      143 |   await expect(proceed(page)).toBeFocused();
+      144 |   await page.keyboard.press('Tab');
+        at /Users/transl8r/Developer/recipe-warning/tests/warning.spec.js:141:30
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/test-results/warning-native-modal-traps-df34a-supports-keyboard-dismissal-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/test-results/warning-native-modal-traps-df34a-supports-keyboard-dismissal-webkit/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/test-results/warning-native-modal-traps-df34a-supports-keyboard-dismissal-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts/test-results/warning-native-modal-traps-df34a-supports-keyboard-dismissal-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4 failed
+    [webkit] › tests/edge.spec.js:23:1 › large and malformed unrelated metadata does not hide a later recipe or freeze the page 
+    [webkit] › tests/edge.spec.js:35:1 › 20,000 nested metadata levels fail safely and allow a later recipe 
+    [webkit] › tests/edge.spec.js:118:1 › clipboard fallback participates in forward and reverse keyboard focus order 
+    [webkit] › tests/warning.spec.js:137:1 › native modal traps keyboard focus and supports keyboard dismissal 
+  38 passed (3.5m)

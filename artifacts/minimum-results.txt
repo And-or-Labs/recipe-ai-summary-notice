@@ -1,0 +1,1 @@
+PASS: WordPress 6.4.12 / PHP 8.2 recipe/manual/plain/password behavior

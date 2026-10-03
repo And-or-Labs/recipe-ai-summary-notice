@@ -2,6 +2,7 @@
     --rw-paper: var(--wp--preset--color--base, #faf8f2);
     --rw-ink: var(--wp--preset--color--contrast, #20251f);
     box-sizing: border-box;
+    overflow-wrap: anywhere;
     color: var(--rw-ink);
     background: var(--rw-paper);
     font-family: inherit;

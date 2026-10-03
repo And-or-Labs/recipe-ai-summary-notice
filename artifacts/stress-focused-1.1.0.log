@@ -1,0 +1,20 @@
+
+Running 9 tests using 1 worker
+
+(node:30525) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/edge.spec.js:34:1 › large and malformed unrelated metadata does not hide a later recipe or freeze the page (3.9s)
+  ✓  2 [chromium] › tests/edge.spec.js:45:1 › 20,000 nested metadata levels fail safely and allow a later recipe (2.6s)
+  ✓  3 [chromium] › tests/edge.spec.js:56:1 › many unrelated metadata nodes keep controls responsive (1.0s)
+(node:30749) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  4 [firefox] › tests/edge.spec.js:34:1 › large and malformed unrelated metadata does not hide a later recipe or freeze the page (2.5s)
+  ✓  5 [firefox] › tests/edge.spec.js:45:1 › 20,000 nested metadata levels fail safely and allow a later recipe (1.4s)
+  ✓  6 [firefox] › tests/edge.spec.js:56:1 › many unrelated metadata nodes keep controls responsive (825ms)
+(node:30825) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  7 [webkit] › tests/edge.spec.js:34:1 › large and malformed unrelated metadata does not hide a later recipe or freeze the page (2.0s)
+  ✓  8 [webkit] › tests/edge.spec.js:45:1 › 20,000 nested metadata levels fail safely and allow a later recipe (1.4s)
+  ✓  9 [webkit] › tests/edge.spec.js:56:1 › many unrelated metadata nodes keep controls responsive (672ms)
+
+  9 passed (46.6s)

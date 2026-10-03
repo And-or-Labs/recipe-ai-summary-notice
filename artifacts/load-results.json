@@ -1,0 +1,11 @@
+{
+  "requests": 200,
+  "concurrency": 4,
+  "passed": 200,
+  "failures": [],
+  "elapsedMs": 37878,
+  "medianMs": 634,
+  "p95Ms": 1535,
+  "maxMs": 2392,
+  "cacheConfigIdentical": true
+}

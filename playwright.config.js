@@ -2,7 +2,7 @@ const { defineConfig } = require('@playwright/test');
 
 module.exports = defineConfig({
   testDir: './tests',
-  testMatch: 'warning.spec.js',
+  testMatch: '*.spec.js',
   fullyParallel: true,
   workers: 2,
   timeout: 30_000,
@@ -19,5 +19,6 @@ module.exports = defineConfig({
   projects: [
     { name: 'chromium', use: { browserName: 'chromium', launchOptions: { executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' } } },
     { name: 'firefox', use: { browserName: 'firefox' } },
+    { name: 'webkit', use: { browserName: 'webkit' } },
   ],
 });

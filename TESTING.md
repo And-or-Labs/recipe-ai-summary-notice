@@ -1,60 +1,39 @@
 # Verification record
 
-Completed October 2, 2026.
+Release 1.1.0, October 2, 2026.
 
-## Environment
+## Environments
 
-WordPress Studio desktop and standalone CLI installed from Automattic's official downloads. Local site runs WordPress 7.1.2, PHP 8.4, SQLite, Twenty Twenty-Five, and WP Recipe Maker 10.8.5.
+WordPress Studio runs WordPress 7.1.2 / PHP 8.4 / SQLite / Twenty Twenty-Five with WP Recipe Maker 10.8.5 at http://localhost:8881. A second site at http://localhost:8882 runs the declared minimum WordPress 6.4.12 with PHP 8.2 and Twenty Twenty-Four.
 
-## Results
+## Completed verification
 
-- 19 browser scenarios on each of installed Google Chrome and Playwright Firefox: 38 combinations verified.
-- 26 WordPress runtime assertions passed, covering plain-text sanitization, malformed input, defaults, shortcode/block hints, manual overrides, nonce enforcement, and capabilities.
-- Settings integration passed: saving, disabling without loading frontend assets, edited copy rendered, injected HTML unable to execute, and original settings restored.
-- Packaged ZIP installed and activated through WordPress's installer.
-- PHP syntax and JavaScript syntax checks passed.
-- Automated accessibility audit: zero serious or critical violations in the notice on both engines.
-- Rendered mobile notice, desktop recipe, and native WordPress settings screenshots inspected.
+- 42 scenarios across installed Google Chrome, Playwright Firefox, and WebKit: 126 combinations verified through the full runs and focused reruns after fixes. Chrome and Firefox initially passed all 84; WebKit passed 38 of 42 initially. Keyboard fixes and focused reruns resolved the remaining plugin cases.
+- Nine metadata stress combinations passed across all three engines. Actual plugin initialization completed below 1,000 ms on every stress fixture, including oversized, malformed, and deeply nested metadata.
+- 26 PHP runtime assertions passed on both WordPress versions. 57 release regression checks passed on both versions and cover malformed saved options, stock-copy migration, Unicode limits, safe text, typed configuration, and translated strings.
+- Settings integration passed: save, disable without frontend assets, edited copy, injection resistance, and restoration.
+- Context and About tabs passed source-link, active-navigation, script-error, and overflow checks at 1280px and 390px.
+- Minimum-version browser checks passed for recipe, manual override, ordinary content, and password-protected content.
+- 200 local HTTP requests at four concurrent requests passed. Median response 634 ms, p95 1,535 ms, maximum 2,392 ms. Desktop and mobile receive identical cached configuration. This measures the local Studio environment, not production capacity.
+- WordPress Plugin Check 2.1.0 reported no errors. PHP and JavaScript syntax checks passed.
+- Accessibility checks cover modal semantics, visible focus, keyboard order and wrapping, return focus, minimum targets, narrow and short viewports, 200% text, reduced motion, and low-contrast theme fallback. Automated notice audits reported no serious or critical violations.
 
-The initial browser run passed 35 of 38 combinations. It exposed WordPress localization converting the expiry duration to a string and native dialog tabbing reaching browser chrome. The duration now converts explicitly to a number; Tab boundaries wrap explicitly. Eight focused checks passed after the fixes, followed by two strict keyboard checks. No unresolved failures remain.
+## Failure paths
 
-Mobile device identity and viewport are emulated on desktop engines. Physical Android/iOS devices and Firefox's summary generation were not part of this test. Tests verify the warning plugin, not summary accuracy or prevention.
+Coverage includes clipboard denial, unavailable storage, corrupt and expired storage, unreasonable future expiration, missing or throwing native dialog support, duplicate script execution, disabled JavaScript, malformed JSON-LD, bounded oversized scans, root arrays, schema URLs, supported recipe containers, and HTTP/HTTPS microdata. Archives, feeds, embeds, protected pages, and unsupported browser identities do not show the notice.
 
-## Browser coverage
+The final stock-copy regression covers Windows-style line endings and trailing form whitespace. Only the recognized original stock copy migrates to the neutral default; custom publisher copy remains intact.
 
-- Android Firefox and iOS Firefox trigger only on recipes.
-- Desktop Firefox, Android Chrome, and iOS Safari identities do not trigger.
-- JSON-LD recipe, manually marked post, and a real WP Recipe Maker card trigger.
-- Ordinary and password-protected pages do not trigger.
-- Seven-day confirmation survives reload and expires correctly.
-- Continue and Escape dismiss only the current visit and restore content focus.
-- Clipboard success, denial, and selectable fallback.
-- Unavailable local storage and malformed JSON-LD remain usable.
-- Keyboard order, forward/reverse wrap, and inert page background.
-- 320px width, 44px minimum controls, and accessible modal semantics.
+## Test boundaries
+
+Mobile identities and viewports are emulated. Physical Android/iOS devices and Firefox summary generation were not tested. The plugin neither validates summaries nor prevents their generation.
+
+WebKit's unrelated WordPress emoji worker intermittently failed on canvas access. Its normal capability cache is seeded only in WebKit tests; page-error assertions remain unfiltered. See [environment evidence](docs/WEBKIT-TEST-ENVIRONMENT.md). Stress timing measures plugin execution over loaded metadata, excluding browser startup and WordPress network latency.
 
 ## UI review
 
-The Impeccable command package was not installed. The requested review sequence was applied directly to the two page types rather than claiming those commands ran.
+The Impeccable command package was unavailable. Its requested review sequence was applied directly, without claiming the commands ran: normalize against theme tokens and native WordPress components; adapt to mobile and short viewports; polish spacing and focus; clarify dismissal versus seven-day confirmation; harden text, storage, clipboard, metadata, and permissions; retain restrained press feedback with reduced-motion support. Context and About use the same native admin navigation and responsive layout. Rendered screenshots are in `artifacts/`.
 
-| Pass | Reader notice | WordPress settings |
-| --- | --- | --- |
-| Normalize | Active theme color/font tokens; native dialog | Native Settings API and WordPress classes |
-| Adapt | 320px and 390px layouts; scrollable short viewport | Native responsive WordPress form layout |
-| Polish | Balanced heading, consistent spacing, visible focus | Associated labels, standard control sizing |
-| Clarify | Explicit continue versus remembered confirmation | Accurate seven-day explanation and scope |
-| Harden | Clipboard/storage fallback, safe text, keyboard wrap | Sanitization, nonces, capability enforcement |
-| Delight | Original dry warning copy, subtle reduced-motion-aware press feedback | Don Marti attribution, no extra dashboard UI |
+## Reproduction
 
-## Changes from review
-
-| Before | After |
-| --- | --- |
-| WordPress TTL arrived as text | Numeric conversion before expiry arithmetic |
-| Native modal allowed a browser-chrome Tab stop | Explicit forward/reverse focus wrapping |
-| Full-page capture extended beyond the modal backdrop | Mobile screenshot captures the actual viewport |
-| Settings implied every dismissal persisted | Only disabled-summary confirmation persists |
-
-## Reproduce
-
-See README.md for setup, fixture generation, and test commands. `node tests/admin-check.cjs` tests settings on the disposable local site. `python3 scripts/package.py` creates the upload archive reproducibly.
+See README.md for site setup. Run `npm test`, the PHP checks through `studio wp eval-file`, `node tests/admin-check.cjs`, `node tests/content-check.cjs`, `node tests/load.mjs`, and `node tests/minimum-check.cjs`. `python3 scripts/package.py` creates the reproducible upload archive. Full and focused browser logs are preserved in `artifacts/`.
