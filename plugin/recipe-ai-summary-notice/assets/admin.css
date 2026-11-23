@@ -18,7 +18,6 @@
 .rw-admin .components-base-control__label { font-size: 13px; font-weight: 500; text-transform: none; }
 .rw-admin .components-text-control__input { min-height: 44px; }
 .rw-admin .components-textarea-control__input { line-height: 1.6; resize: vertical; }
-.rw-admin .components-base-control + .components-base-control { margin-top: 24px; }
 .rw-admin .components-toggle-control .components-base-control__field { min-height: 44px; }
 .rw-admin .components-toggle-control__label { padding-block: 10px; }
 .rw-muted, .rw-admin .components-base-control__help { color: #50575e; font-size: 13px; }
