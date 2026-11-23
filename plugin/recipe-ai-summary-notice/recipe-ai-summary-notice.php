@@ -109,9 +109,7 @@ final class Recipe_Warning {
 	}
 
 	public static function privacy_policy() {
-		if ( function_exists( 'wp_add_privacy_policy_content' ) ) {
-			wp_add_privacy_policy_content( __( 'Recipe AI Summary Notice for Firefox', 'recipe-ai-summary-notice' ), '<p>' . esc_html__( 'Suggested text: Recipe AI Summary Notice for Firefox stores an expiry timestamp in your browser local storage under recipe-warning-bypass-v1 only when you confirm that summaries are disabled. This suppresses the warning for seven days for this site origin in that browser. Expired entries are removed when the warning next checks storage; they may remain until then. You can remove it by clearing this site’s browser storage. The plugin does not set cookies, track visitors, or send visitor data to external services.', 'recipe-ai-summary-notice' ) . '</p>' );
-		}
+		wp_add_privacy_policy_content( __( 'Recipe AI Summary Notice for Firefox', 'recipe-ai-summary-notice' ), '<p>' . esc_html__( 'Suggested text: Recipe AI Summary Notice for Firefox stores an expiry timestamp in your browser local storage under recipe-warning-bypass-v1 only when you confirm that summaries are disabled. This suppresses the warning for seven days for this site origin in that browser. Expired entries are removed when the warning next checks storage; they may remain until then. You can remove it by clearing this site’s browser storage. The plugin does not set cookies, track visitors, or send visitor data to external services.', 'recipe-ai-summary-notice' ) . '</p>' );
 	}
 
 
