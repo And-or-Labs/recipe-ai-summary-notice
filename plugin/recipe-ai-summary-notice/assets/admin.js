@@ -50,6 +50,5 @@
           dismissibleState[0] ? h('div', { className: 'rw-preview-action' }, text.proceed) : null))));
   }
   // The component library ships with WordPress. No external runtime is loaded.
-  if (wp.element.createRoot) wp.element.createRoot(target).render(h(Settings));
-  else wp.element.render(h(Settings), target);
+  wp.element.createRoot(target).render(h(Settings));
 }());
