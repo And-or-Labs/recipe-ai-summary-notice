@@ -48,7 +48,6 @@
   .rw-admin .nav-tab { padding-inline: 12px; }
   .rw-admin-content { padding-top: 20px; }
   .rw-admin .components-card__body, .rw-admin-card { padding: 20px; }
-  .rw-settings-grid { gap: 28px; }
 }
 
 .rw-admin .rw-message-label { display: block; margin: 24px 0 8px; }
